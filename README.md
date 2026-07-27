@@ -86,6 +86,36 @@ Currently opens the visitor's mail client with a pre-filled message. To enable r
 | حالية · Current | شنغهاي، الصين — Shanghai, China · 2026 |
 | قادمة · Upcoming | قريباً سيتم الإعلان — To be announced |
 
+## النشر · Deployment
+
+يُنشر عبر **GitHub Pages** من فرع `main` مباشرة (لا خطوة بناء). ملف `CNAME` يثبّت الدومين المخصص.
+
+Deployed via **GitHub Pages** straight from `main` (no build step). The `CNAME` file pins the custom domain.
+
+**الدومين · Domain:** <https://www.yemenglobalvillage.com> (مسجَّل لدى Hostinger · registered with Hostinger)
+
+### إعداد DNS لدى Hostinger · DNS records
+
+| Type | Name | Value | TTL |
+| --- | --- | --- | --- |
+| CNAME | `www` | `salahalhattami.github.io` | 3600 |
+| A | `@` | `185.199.108.153` | 3600 |
+| A | `@` | `185.199.109.153` | 3600 |
+| A | `@` | `185.199.110.153` | 3600 |
+| A | `@` | `185.199.111.153` | 3600 |
+
+سجلات `A` تجعل النطاق المجرّد يحوّل تلقائياً إلى `www`. تحقّق من عناوين IP في توثيق GitHub Pages وقت الإعداد.
+
+The `A` records let the apex redirect to `www`. Confirm the IPs against GitHub Pages docs at setup time.
+
+بعد انتشار DNS: `Settings → Pages → Custom domain` ثم فعّل **Enforce HTTPS**.
+
+Once DNS propagates: `Settings → Pages → Custom domain`, then enable **Enforce HTTPS**.
+
+> ⚠️ لا تحذف ملف `CNAME` — حذفه يفصل الدومين المخصص عن الموقع.
+>
+> Do not delete `CNAME` — removing it unlinks the custom domain.
+
 ## الحقوق · Rights
 
 جميع الحقوق محفوظة © 2026 القرية اليمنية. الصور والخطوط والشعارات ملك لأصحابها ومخصصة لاستخدام المشروع.

@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    Yemeni Village — القرية اليمنية
    Bilingual (AR/EN) + interactions
    ============================================================ */
@@ -481,7 +481,7 @@ if (contactForm) {
     const mailMsg = lang === 'ar'
       ? 'فتحنا برنامج البريد لديكم بالرسالة جاهزة — أرسلوها لإتمام التواصل.'
       : 'Your mail app has opened with the message ready — send it to complete.';
-    const errMsg = lang === 'ar' ? 'تعذّر الإرسال. راسلونا على info@yemenglobalvillege.com' : 'Could not send. Please email info@yemenglobalvillege.com';
+    const errMsg = lang === 'ar' ? 'تعذّر الإرسال. راسلونا على info@yemenglobalvillage.com' : 'Could not send. Please email info@yemenglobalvillage.com';
 
     if (FORM_ENDPOINT) {
       formStatus.textContent = sending;
@@ -513,7 +513,7 @@ if (contactForm) {
       d.message || ''
     ].join('\n');
     window.location.href =
-      `mailto:info@yemenglobalvillege.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      `mailto:info@yemenglobalvillage.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     formStatus.textContent = mailMsg;
     formStatus.className = 'form-status is-ok';
   });
