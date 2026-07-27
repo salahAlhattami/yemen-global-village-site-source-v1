@@ -2,6 +2,10 @@
 
 This file is the mandatory checkpoint for every design and implementation decision.
 
+> **Repository status.** As of 2026-07-25 this repo holds the rebuilt static site
+> (plain HTML/CSS/JS, no build step) — see `README.md`. The earlier React + Vite
+> prototype was replaced on `main`; it remains in git history at commit `dff9595`.
+
 ## Canonical source files
 
 - Visual identity: `../project_sources/14-Yemen-Village-identity-final.pdf`
@@ -43,9 +47,27 @@ This file is the mandatory checkpoint for every design and implementation decisi
 
 ## Destination truth
 
+Confirmed by Salah on 2026-07-25 — this supersedes the earlier "do not display Shanghai" rule:
+
 - Previous destination: Osaka, Japan — 2024.
-- Upcoming destinations: `قيد الإعلان`.
-- Do not display Shanghai or any other city as upcoming without a new explicit confirmation from Salah.
+- **Current destination: Shanghai, China — 2026.**
+- Upcoming destinations: `قريباً سيتم الإعلان`.
+- The hero flight strip runs in that order: Osaka → Shanghai → upcoming.
+- Do not add any further city without a new explicit confirmation from Salah.
+
+## Numerals
+
+- Digits are always Latin (`0-9`) in **both** languages. Never Arabic-Indic (`٠-٩`).
+- GE Contrast Bold silently maps ASCII digits to Arabic-Indic glyphs, so its `@font-face`
+  declares a `unicode-range` that excludes `U+0030-0039`, and numeric UI uses the
+  `--font-num` (Didot) variable. Do not remove either guard.
+
+## Contact truth
+
+- Phone: `+966 555 015 477`
+- Email: `info@yemenglobalvillege.com`
+- Site: `www.yemenglobalvillege.com` (the "villege" spelling is theirs — keep it)
+- Developer: Core Media — `coremedias.com`
 
 ## Image policy
 

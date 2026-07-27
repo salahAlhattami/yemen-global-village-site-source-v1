@@ -1,14 +1,945 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="القرية اليمنية العالمية — وجهة دولية ومنصة ثقافية وتجارية تنقل اليمن إلى العالم عبر تجربة تُعاش." />
-    <meta name="theme-color" content="#F6F0E7" />
-    <title>القرية اليمنية العالمية</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title">القرية اليمنية — وجهة دولية للتبادل الثقافي والحضاري</title>
+<meta name="description" data-i18n-content="meta.desc" content="القرية اليمنية: مبادرة ثقافية دولية تقدم تجربة يمنية متكاملة — الثقافة، الفنون، الحرف، الضيافة، والمنتجات الأصيلة — حول العالم.">
+<meta name="theme-color" content="#F6F0E7">
+<meta name="keywords" content="القرية اليمنية, Yemeni Village, Yemen Global Village, اليمن, تبادل ثقافي, البن اليمني, العسل اليمني, Core Media, كور ميديا, إكسبو, شنغهاي 2026">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="القرية اليمنية — Yemeni Village">
+<meta property="og:title" data-i18n-content="meta.title" content="القرية اليمنية — وجهة دولية للتبادل الثقافي والحضاري">
+<meta property="og:description" data-i18n-content="meta.desc" content="اليمن… حكاية تتنقّل حول العالم. منصة دولية تجمع الثقافة والتجربة والمنتج اليمني في وجهة واحدة.">
+<meta property="og:image" content="assets/img/hero-atlas.jpg">
+<meta property="og:url" content="https://www.yemenglobalvillege.com">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" data-i18n-content="meta.title" content="القرية اليمنية — Yemeni Village">
+<meta name="twitter:description" data-i18n-content="meta.desc" content="اليمن… حكاية تتنقّل حول العالم.">
+<meta name="twitter:image" content="assets/img/hero-atlas.jpg">
+
+<link rel="canonical" href="https://www.yemenglobalvillege.com">
+<link rel="icon" type="image/png" href="assets/logos/V color W.png">
+<link rel="apple-touch-icon" href="assets/logos/V color W.png">
+<link rel="preload" as="image" href="assets/img/hero-atlas.webp">
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "القرية اليمنية — Yemeni Village",
+  "alternateName": "Yemen Global Village",
+  "url": "https://www.yemenglobalvillege.com",
+  "logo": "https://www.yemenglobalvillege.com/assets/logos/trimmed-H-color-B.png",
+  "description": "وجهة دولية للتبادل الثقافي والحضاري تقدم تجربة يمنية متكاملة حول العالم.",
+  "email": "info@yemenglobalvillege.com",
+  "founder": { "@type": "Organization", "name": "Core Media" }
+}
+</script>
+</head>
+<body>
+
+<!-- ==================== NAV ==================== -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="nav-logo" aria-label="Yemeni Village">
+      <img class="logo-dark" src="assets/logos/trimmed-H-color-B.png" alt="القرية اليمنية — Yemeni Village">
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#home" class="active" data-i18n="nav.home">الرئيسية</a>
+      <a href="#about" data-i18n="nav.about">عن القرية</a>
+      <a href="#experience" data-i18n="nav.experience">التجربة</a>
+      <a href="#destinations" data-i18n="nav.destinations">الوجهات</a>
+      <a href="#products" data-i18n="nav.products">المنتجات</a>
+      <a href="#partner" data-i18n="nav.partners">الشراكات</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#contact" class="nav-cta" data-i18n="nav.cta">شارك معنا <span class="cta-diamond">◆</span></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span id="langLabel">EN</span>
+      </button>
+      <button class="nav-burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile" id="navMobile">
+    <a href="#home" data-i18n="nav.home">الرئيسية</a>
+    <a href="#about" data-i18n="nav.about">عن القرية</a>
+    <a href="#experience" data-i18n="nav.experience">التجربة</a>
+    <a href="#destinations" data-i18n="nav.destinations">الوجهات</a>
+    <a href="#products" data-i18n="nav.products">المنتجات</a>
+    <a href="#partner" data-i18n="nav.partners">الشراكات</a>
+    <a href="#contact" data-i18n="nav.contact">تواصل معنا</a>
+  </nav>
+</header>
+
+<!-- ==================== HERO — LIVING ATLAS ==================== -->
+<section class="hero atlas-hero" id="home">
+  <div class="atlas-topo" aria-hidden="true"></div>
+  <div class="container hero-inner">
+
+    <!-- stations rail -->
+    <aside class="atlas-stations" data-stagger="4" aria-hidden="true">
+      <div class="station" style="--st: var(--hue-coral);">
+        <span class="st-diamond"></span>
+        <span class="st-ar" data-i18n="hero.st1">صنعاء</span>
+        <span class="st-en latin">SANA'A</span>
+        <span class="st-coords latin">16.7533° N<br>44.2075° E</span>
+      </div>
+      <div class="station" style="--st: var(--hue-amber);">
+        <span class="st-diamond"></span>
+        <span class="st-ar" data-i18n="hero.st2">شبـام</span>
+        <span class="st-en latin">SHIBAM</span>
+        <span class="st-coords latin">15.8603° N<br>48.5453° E</span>
+      </div>
+      <div class="station" style="--st: var(--hue-sage-dim);">
+        <span class="st-diamond"></span>
+        <span class="st-ar" data-i18n="hero.st3">حـراز</span>
+        <span class="st-en latin">HARAZ</span>
+        <span class="st-coords latin">12.7797° N<br>45.3628° E</span>
+      </div>
+      <div class="station" style="--st: var(--hue-teal);">
+        <span class="st-diamond"></span>
+        <span class="st-ar" data-i18n="hero.st4">سقطرى</span>
+        <span class="st-en latin">SOQOTRA</span>
+        <span class="st-coords latin">12.4634° N<br>54.0836° E</span>
+      </div>
+      <span class="compass" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="50" cy="50" r="30"/>
+          <circle cx="50" cy="50" r="3" fill="currentColor" stroke="none"/>
+          <path d="M50 14 55 45 50 50 45 45Z" fill="currentColor" stroke="none" opacity="0.8"/>
+          <path d="M50 86 55 55 50 50 45 55Z"/>
+          <path d="M14 50 45 45 50 50 45 55Z"/>
+          <path d="M86 50 55 45 50 50 55 55Z"/>
+          <text x="50" y="8" text-anchor="middle" font-size="9" fill="currentColor" stroke="none">N</text>
+          <text x="50" y="99" text-anchor="middle" font-size="9" fill="currentColor" stroke="none">S</text>
+          <text x="4" y="53" text-anchor="middle" font-size="9" fill="currentColor" stroke="none">W</text>
+          <text x="96" y="53" text-anchor="middle" font-size="9" fill="currentColor" stroke="none">E</text>
+        </svg>
+      </span>
+    </aside>
+
+    <!-- atlas collage -->
+    <figure class="atlas-figure" data-stagger="3">
+      <img src="assets/img/hero-atlas.webp" alt="أطلس بصري يجمع صنعاء وشبام وسواحل اليمن ومدرجات حراز والبن والعسل — A living atlas of Yemen" loading="eager" fetchpriority="high">
+    </figure>
+
+    <!-- copy -->
+    <div class="hero-copy">
+      <p class="hero-eyebrow latin" data-stagger="1">YEMEN <span class="sep">/</span> A LIVING ATLAS <span class="eb-diamond">◆</span></p>
+      <h1 data-stagger="2">
+        <span data-i18n="hero.l1">اليمن…</span><br>
+        <span data-i18n="hero.l2">حكاية تتنقّل</span><br>
+        <span data-i18n="hero.l3">حول العـالـم</span>
+      </h1>
+      <p class="hero-body" data-stagger="3" data-i18n="hero.tagline">منصة دولية تجمع الثقافة والتجربة والمنتج اليمني في وجهة واحدة.</p>
+      <div class="hero-ctas" data-stagger="4">
+        <a href="#culture" class="btn btn-amber"><span class="btn-diamond">◆</span> <span data-i18n="hero.cta1">ابدأ الرحلة</span></a>
+        <a href="#formats" class="btn btn-plum-outline"><span class="btn-diamond">◆</span> <span data-i18n="hero.cta2">اكتشف الوجهات</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- flight route strip: Osaka 2024 → Shanghai 2026 → upcoming -->
+  <div class="container flight-strip" data-stagger="5">
+    <div class="flight-node is-past">
+      <span class="fn-dot"></span>
+      <span class="fn-label"><span data-i18n="hero.prevDest">أوساكا، اليابان</span><br><span class="latin fn-year">2024</span></span>
+    </div>
+    <div class="flight-path" aria-hidden="true">
+      <svg viewBox="0 0 600 60" fill="none" preserveAspectRatio="none">
+        <path d="M10 18 C 150 55, 450 55, 590 18" stroke="currentColor" stroke-width="1.6" stroke-dasharray="1 9" stroke-linecap="round"/>
+      </svg>
+      <span class="plane">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 15.5 13.5 11V4.75a1.5 1.5 0 0 0-3 0V11l-8 4.5v2l8-2.25v4.5L8 21.25V23l4-1 4 1v-1.75l-2.5-1.5v-4.5l8 2.25Z"/></svg>
+      </span>
+    </div>
+    <div class="flight-node is-current">
+      <span class="fn-dot"></span>
+      <span class="fn-label"><span data-i18n="hero.currDest">شنغهاي، الصين</span><br><span class="latin fn-year">2026</span></span>
+    </div>
+    <div class="flight-path flight-path-faded" aria-hidden="true">
+      <svg viewBox="0 0 600 60" fill="none" preserveAspectRatio="none">
+        <path d="M10 18 C 150 55, 450 55, 590 18" stroke="currentColor" stroke-width="1.6" stroke-dasharray="1 9" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="flight-node is-upcoming">
+      <span class="fn-dot"></span>
+      <span class="fn-label"><span data-i18n="hero.nextDest">الوجهات القادمة</span><br><span class="fn-tba" data-i18n="hero.nextTba">قريباً سيتم الإعلان —</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NEXT CHAPTER — FOUR GATES ==================== -->
+<section class="next-chapter">
+  <div class="container next-head reveal">
+    <p class="mini-kicker" data-i18n="next.kicker">الفصل التالي</p>
+    <h2 class="next-title">
+      <span data-i18n="next.l1">أربع وجهات…</span><br>
+      <span data-i18n="next.l2">تجربـة واحـدة</span>
+    </h2>
+    <p class="next-sub" data-i18n="next.sub">اكتشف اليمن من زواياه الأربع</p>
+  </div>
+
+  <div class="arcade reveal">
+    <div class="arcade-rail" aria-hidden="true"></div>
+    <svg class="arcade-rope" viewBox="0 0 1200 70" fill="none" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 18 Q 600 78 1200 18" stroke="currentColor" stroke-width="1.6"/>
+    </svg>
+    <div class="container arcade-grid">
+      <a href="#culture" class="arch" style="--arch: var(--hue-plum); --hang: 0px;">
+        <span class="arch-finial" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 4 36 20 20 36 4 20Z"/><path d="M20 12 28 20 20 28 12 20Z"/></svg></span>
+        <figure><img src="assets/img/culture-heritage-woman.jpg" alt="" loading="lazy"></figure>
+        <h3 data-i18n="next.a1">الثقافة</h3>
+      </a>
+      <a href="#experience" class="arch" style="--arch: var(--hue-amber-dim); --hang: 26px;">
+        <span class="arch-finial" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 4 36 20 20 36 4 20Z"/><path d="M20 12 28 20 20 28 12 20Z"/></svg></span>
+        <figure><img src="assets/img/campfire.jpg" alt="" loading="lazy"></figure>
+        <h3 data-i18n="next.a2">التجربة</h3>
+      </a>
+      <a href="#worlds" class="arch" style="--arch: var(--hue-sage-dim); --hang: 26px;">
+        <span class="arch-finial" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 4 36 20 20 36 4 20Z"/><path d="M20 12 28 20 20 28 12 20Z"/></svg></span>
+        <figure><img src="assets/img/arch-products.jpg" alt="" loading="lazy"></figure>
+        <h3 data-i18n="next.a3">المنتجات</h3>
+      </a>
+      <a href="#partner" class="arch" style="--arch: var(--hue-teal-dim); --hang: 0px;">
+        <span class="arch-finial" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 4 36 20 20 36 4 20Z"/><path d="M20 12 28 20 20 28 12 20Z"/></svg></span>
+        <figure><img src="assets/img/partner-handshake.jpg" alt="" loading="lazy"></figure>
+        <h3 data-i18n="next.a4">الشراكات</h3>
+      </a>
+    </div>
+  </div>
+
+  <div class="dunes" aria-hidden="true">
+    <img src="assets/img/camels.jpg" alt="" loading="lazy">
+  </div>
+</section>
+
+<!-- ==================== 01 CULTURE ==================== -->
+<section class="culture section-pad" id="culture" style="--chapter-accent: var(--hue-coral);">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <span class="chapter-num">01</span>
+      <div class="chapter-titles">
+        <p class="chapter-kicker" data-i18n="culture.kicker">الثقافة</p>
+        <h2 class="chapter-title" data-i18n="culture.title">لغة الشعوب المشتركة</h2>
+      </div>
+    </div>
+    <div class="culture-grid">
+      <figure class="culture-photo reveal">
+        <img src="assets/img/portrait-bridal.jpg" alt="امرأة يمنية بالحلي والزي التقليدي — Yemeni woman in traditional adornment" loading="lazy">
+        <span class="photo-motif" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><path d="M50 8 92 50 50 92 8 50Z"/><path d="M50 30 70 50 50 70 30 50Z"/></svg>
+        </span>
+      </figure>
+      <div class="culture-body reveal" style="--reveal-delay: 0.15s;">
+        <p class="culture-quote" data-i18n="culture.quote">يمتلك اليمن إرثاً حضارياً وثقافياً يمتد لآلاف السنين؛ ملتقىً للحضارات، ومحطةً على طرق التجارة العالمية، وموطناً لتقاليد أصيلة في الضيافة والفنون والحرف والعمارة.</p>
+        <p data-i18n="culture.p1">في عالمٍ تتقارب فيه الشعوب من خلال الثقافة والمعرفة والتجارب الإنسانية، تبرز الحاجة إلى مبادرات تفتح آفاقاً جديدة للحوار، وتعزز التفاهم بين المجتمعات، وتُعرّف بالهويات الوطنية من خلال تجارب حيّة تتجاوز أساليب العرض التقليدية.</p>
+        <p data-i18n="culture.p2">من هذه الرؤية انطلقت القرية اليمنية بوصفها وجهة دولية للتبادل الثقافي والحضاري، تنقل الزائر من المشاهدة إلى التفاعل، ومن التعرف على الموروث الثقافي إلى معايشة تفاصيله.</p>
+        <div class="culture-tags">
+          <span class="tag" data-i18n="culture.tag1">الضيافة</span>
+          <span class="tag" data-i18n="culture.tag2">الفنون</span>
+          <span class="tag" data-i18n="culture.tag3">الحِرف</span>
+          <span class="tag" data-i18n="culture.tag4">العمارة</span>
+          <span class="tag" data-i18n="culture.tag5">المنتجات الأصيلة</span>
+          <span class="tag" data-i18n="culture.tag6">الموروث الحي</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TERRACES BANNER ==================== -->
+<section class="banner" aria-label="Yemen landscape">
+  <div class="banner-bg" style="background-image: url('assets/img/terraces.jpg');" aria-hidden="true"></div>
+  <div class="container banner-inner">
+    <p class="banner-quote reveal">
+      <span data-i18n="banner.quote">اليمن.. ملتقى الحضارات، ومحطة على طرق التجارة العالمية، وموطن تقاليد أصيلة ما زالت تحكي هوية المكان وروح الإنسان.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ==================== 02 ABOUT ==================== -->
+<section class="about section-pad" id="about">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <span class="chapter-num">02</span>
+      <div class="chapter-titles">
+        <p class="chapter-kicker" data-i18n="about.kicker">عن القرية اليمنية</p>
+        <h2 class="chapter-title" data-i18n="about.title">وجهة تنبض بالحياة</h2>
+      </div>
+    </div>
+    <p class="lead reveal" data-i18n="about.lead">تقوم فلسفة القرية على صناعة وجهة حيّة تحتضن الفنون والتراث والضيافة والحرف والمنتجات الأصيلة، ضمن بيئة تفاعلية تجمع بين الأصالة وروح العصر — تجربة مستمرة تتجدد بالفعاليات والبرامج في كل زيارة.</p>
+    <div class="pillar-grid">
+      <div class="pillar reveal" style="--pillar-hue: var(--hue-coral);">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M24 4 44 24 24 44 4 24Z"/><path d="M24 15 33 24 24 33 15 24Z"/></svg>
+        </div>
+        <h3 data-i18n="about.pillar1.title">تجربة يمنية متكاملة</h3>
+        <p data-i18n="about.pillar1.text">تبدأ منذ لحظة الوصول؛ حيث تلتقي الثقافة بالضيافة، والفنون بالحرف، والتراث بالتجربة الحية — تفاعل مباشر لا مشاهدة فقط.</p>
+      </div>
+      <div class="pillar reveal" style="--pillar-hue: var(--hue-amber); --reveal-delay: 0.12s;">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 24h10M32 24h10M24 6v10M24 32v10"/><circle cx="24" cy="24" r="7"/></svg>
+        </div>
+        <h3 data-i18n="about.pillar2.title">جسور مستدامة</h3>
+        <p data-i18n="about.pillar2.text">تواصل حقيقي بين اليمن وشعوب العالم من خلال الثقافة والفنون والضيافة والمنتجات الأصيلة، وشراكات تمتد أثرها بعد الزيارة.</p>
+      </div>
+      <div class="pillar reveal" style="--pillar-hue: var(--hue-teal); --reveal-delay: 0.24s;">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="6" y="6" width="15" height="15"/><rect x="27" y="6" width="15" height="15"/><rect x="6" y="27" width="15" height="15"/><rect x="27" y="27" width="15" height="15"/></svg>
+        </div>
+        <h3 data-i18n="about.pillar3.title">نموذج مرن</h3>
+        <p data-i18n="about.pillar3.text">يتكيف مع طبيعة كل دولة ورؤيتها — ضمن المعارض الدولية، أو المواسم الثقافية، أو كوجهة ثقافية دائمة على مدار العام.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 03 WORLDS ==================== -->
+<section class="worlds section-pad" id="worlds" style="--chapter-accent: var(--hue-teal);">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <span class="chapter-num">03</span>
+      <div class="chapter-titles">
+        <p class="chapter-kicker" data-i18n="worlds.kicker">عوالم القرية</p>
+        <h2 class="chapter-title" data-i18n="worlds.title">ستة عوالم.. هوية واحدة</h2>
+      </div>
+    </div>
+    <p class="lead reveal" style="margin-bottom: clamp(36px, 4vw, 56px);" data-i18n="worlds.lead">تتكون القرية اليمنية من مجموعة من العوالم المتكاملة، يجسّد كل منها جانباً من الهوية اليمنية، لتشكل معاً تجربة ثقافية متكاملة تتجدد بتنوع الأنشطة والفعاليات والمحتوى.</p>
+
+    <div class="worlds-grid">
+      <!-- 1 Culture & Arts -->
+      <article class="world-card reveal" data-world="culture">
+        <figure class="world-photo"><img src="assets/img/world-arts-live.jpg" alt="عرض فلكلوري يمني حي على مسرح دولي — Live Yemeni folkloric performance on an international stage" loading="lazy"></figure>
+        <div class="world-motif"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M50 8 92 50 50 92 8 50Z"/><path d="M50 30 70 50 50 70 30 50Z"/></svg></div>
+        <span class="world-index">WORLD — 01</span>
+        <h3 data-i18n="worlds.w1.title">عالم الثقافة والفن</h3>
+        <ul class="world-list">
+          <li data-i18n="worlds.w1.i1">عروض فلكلورية يمنية حية</li>
+          <li data-i18n="worlds.w1.i2">أمسيات موسيقية وثقافية</li>
+          <li data-i18n="worlds.w1.i3">معارض تراثية وفنية</li>
+          <li data-i18n="worlds.w1.i4">أفلام ووثائقيات عن اليمن</li>
+          <li data-i18n="worlds.w1.i5">احتفاء بالمناسبات الوطنية والثقافية</li>
+        </ul>
+      </article>
+
+      <!-- 2 Hospitality & Flavors -->
+      <article class="world-card reveal" data-world="taste" style="--reveal-delay: 0.08s;">
+        <figure class="world-photo"><img src="assets/img/campfire.jpg" alt="جلسة ضيافة يمنية — Yemeni hospitality gathering" loading="lazy"></figure>
+        <div class="world-motif"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M42 10h16v14h14v18h14v16H72v18H58v14H42V76H28V58H14V42h14V24h14Z"/></svg></div>
+        <span class="world-index">WORLD — 02</span>
+        <h3 data-i18n="worlds.w2.title">عالم الضيافة والمذاقات</h3>
+        <ul class="world-list">
+          <li data-i18n="worlds.w2.i1">تجربة القهوة اليمنية</li>
+          <li data-i18n="worlds.w2.i2">المطبخ اليمني والأطباق التقليدية</li>
+          <li data-i18n="worlds.w2.i3">العسل والمنتجات الغذائية الأصيلة</li>
+          <li data-i18n="worlds.w2.i4">جلسات ضيافة مستوحاة من البيئة اليمنية</li>
+        </ul>
+      </article>
+
+      <!-- 3 Crafts & Creativity -->
+      <article class="world-card reveal" data-world="craft" style="--reveal-delay: 0.16s;">
+        <figure class="world-photo"><img src="assets/img/world-silver.jpg" alt="صائغ يمني يشكّل الفضة يدوياً — Yemeni silversmith at work" loading="lazy"></figure>
+        <div class="world-motif"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M44 28h12v8h8v8h8v12h-8v8h-8v8H44v-8h-8v-8h-8V44h8v-8h8Z"/></svg></div>
+        <span class="world-index">WORLD — 03</span>
+        <h3 data-i18n="worlds.w3.title">عالم الحِرف والإبداع</h3>
+        <ul class="world-list">
+          <li data-i18n="worlds.w3.i1">ورش حيّة للحرف التقليدية</li>
+          <li data-i18n="worlds.w3.i2">صناعة العقيق والفضة</li>
+          <li data-i18n="worlds.w3.i3">الخط العربي والفنون اليدوية</li>
+          <li data-i18n="worlds.w3.i4">تجارب تفاعلية مع الحرفيين</li>
+        </ul>
+      </article>
+
+      <!-- 4 Yemeni Products -->
+      <article class="world-card reveal" data-world="products">
+        <figure class="world-photo"><img src="assets/img/prod-honey.jpg" alt="العسل اليمني — Yemeni honeycomb" loading="lazy"></figure>
+        <div class="world-motif"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M50 10 90 50 50 90 10 50Z"/><path d="M32 40h36M26 50h48M32 60h36"/></svg></div>
+        <span class="world-index">WORLD — 04</span>
+        <h3 data-i18n="worlds.w4.title">عالم المنتجات اليمنية</h3>
+        <ul class="world-list">
+          <li data-i18n="worlds.w4.i1">البن والعسل</li>
+          <li data-i18n="worlds.w4.i2">العقيق والمشغولات الفضية</li>
+          <li data-i18n="worlds.w4.i3">البخور واللبان</li>
+          <li data-i18n="worlds.w4.i4">الأزياء والمنتجات الحرفية</li>
+          <li data-i18n="worlds.w4.i5">الصناعات الإبداعية والهدايا</li>
+        </ul>
+      </article>
+
+      <!-- 5 Business & Partnerships -->
+      <article class="world-card reveal" data-world="business" style="--reveal-delay: 0.08s;">
+        <figure class="world-photo"><img src="assets/img/biz-logistics.jpg" alt="شحن وتوزيع المنتجات اليمنية — Yemeni product logistics and distribution" loading="lazy"></figure>
+        <div class="world-motif"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M50 8 92 50 50 92 8 50Z"/><path d="M50 26 74 50 50 74 26 50Z"/><path d="M50 40 60 50 50 60 40 50Z"/></svg></div>
+        <span class="world-index">WORLD — 05</span>
+        <h3 data-i18n="worlds.w5.title">عالم الأعمال والشراكات</h3>
+        <ul class="world-list">
+          <li data-i18n="worlds.w5.i1">لقاءات الأعمال (B2B)</li>
+          <li data-i18n="worlds.w5.i2">التعريف بالمنتجات اليمنية</li>
+          <li data-i18n="worlds.w5.i3">فرص الاستيراد والتوزيع</li>
+          <li data-i18n="worlds.w5.i4">الشراكات التجارية والاستثمارية</li>
+        </ul>
+      </article>
+
+      <!-- 6 Family & Interactive -->
+      <article class="world-card reveal" data-world="family" style="--reveal-delay: 0.16s;">
+        <figure class="world-photo"><img src="assets/img/world-family.jpg" alt="رقصة شعبية جماعية — Group folkloric dance" loading="lazy"></figure>
+        <div class="world-motif"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 8h22v10H18v12H8Z"/><path d="M92 8H70v10h12v12h10Z"/><path d="M8 92h22V82H18V70H8Z"/><path d="M92 92H70V82h12V70h10Z"/><path d="M50 34 66 50 50 66 34 50Z"/></svg></div>
+        <span class="world-index">WORLD — 06</span>
+        <h3 data-i18n="worlds.w6.title">عالم العائلة والتجارب التفاعلية</h3>
+        <ul class="world-list">
+          <li data-i18n="worlds.w6.i1">برامج الأطفال</li>
+          <li data-i18n="worlds.w6.i2">ورش تعليمية وثقافية</li>
+          <li data-i18n="worlds.w6.i3">مسابقات وأنشطة تفاعلية</li>
+          <li data-i18n="worlds.w6.i4">أيام مفتوحة للجاليات والزوار</li>
+          <li data-i18n="worlds.w6.i5">فعاليات موسمية متجددة</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 04 EXPERIENCE ==================== -->
+<section class="experience section-pad" id="experience" style="--chapter-accent: var(--hue-amber-dim);">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <span class="chapter-num">04</span>
+      <div class="chapter-titles">
+        <p class="chapter-kicker" data-i18n="exp.kicker">رحلة الزائر</p>
+        <h2 class="chapter-title" data-i18n="exp.title">من المشاهدة إلى المعايشة</h2>
+      </div>
+    </div>
+    <p class="lead reveal" data-i18n="exp.lead">صُممت القرية اليمنية لتمنح الزائر تجربة متكاملة تبدأ منذ لحظة الوصول — في كل ركن من أركانها تتحول تفاصيل الهوية اليمنية إلى تجربة إنسانية تثري المعرفة وتترك أثراً يدوم في الذاكرة.</p>
+    <div class="exp-grid">
+    <figure class="exp-photo reveal">
+      <img src="assets/img/expo-visitor.jpg" alt="زائرة تتعرف على جناح القرية اليمنية — A visitor exploring the Yemeni Village pavilion" loading="lazy">
+      <span class="photo-motif amber" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><path d="M42 10h16v14h14v18h14v16H72v18H58v14H42V76H28V58H14V42h14V24h14Z"/></svg>
+      </span>
+    </figure>
+    <div class="exp-steps">
+      <div class="exp-step reveal" style="--step-hue: var(--hue-coral);">
+        <span class="exp-num">01 — ARRIVE</span>
+        <h3 data-i18n="exp.s1.title">الوصول</h3>
+        <p data-i18n="exp.s1.text">استقبال تلتقي فيه الثقافة بالضيافة؛ بوابة تنقلك مباشرة إلى روح اليمن بأسلوب معاصر.</p>
+      </div>
+      <div class="exp-step reveal" style="--step-hue: var(--hue-amber-dim); --reveal-delay: 0.1s;">
+        <span class="exp-num">02 — EXPLORE</span>
+        <h3 data-i18n="exp.s2.title">الاكتشاف</h3>
+        <p data-i18n="exp.s2.text">تجول بين العوالم الستة: عروض فنية، حرف تقليدية، مذاقات يمنية، ومنتجات أصيلة.</p>
+      </div>
+      <div class="exp-step reveal" style="--step-hue: var(--hue-sage-dim); --reveal-delay: 0.2s;">
+        <span class="exp-num">03 — ENGAGE</span>
+        <h3 data-i18n="exp.s3.title">التفاعل</h3>
+        <p data-i18n="exp.s3.text">شارك الحرفيين ورش العمل، وتذوق القهوة اليمنية، وعش الموروث بالتجربة المباشرة لا بالمشاهدة.</p>
+      </div>
+      <div class="exp-step reveal" style="--step-hue: var(--hue-teal); --reveal-delay: 0.3s;">
+        <span class="exp-num">04 — REMEMBER</span>
+        <h3 data-i18n="exp.s4.title">الأثر</h3>
+        <p data-i18n="exp.s4.text">تجربة إنسانية تثري المعرفة وتعزز التواصل، وتترك أثراً يدوم في ذاكرة الزائر.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRODUCTS SHOWCASE ==================== -->
+<section class="products section-pad" id="products" style="--chapter-accent: var(--hue-sage-dim);">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <span class="chapter-num">05</span>
+      <div class="chapter-titles">
+        <p class="chapter-kicker" data-i18n="prod.kicker">المنتجات اليمنية</p>
+        <h2 class="chapter-title" data-i18n="prod.title">كنوز تحمل نكهة اليمن إلى العالم</h2>
+      </div>
+    </div>
+    <p class="lead reveal" style="margin-bottom: clamp(36px, 4vw, 56px);" data-i18n="prod.lead">منتجات أصيلة تُقدَّم ضمن سياق ثقافي يعكس قيمتها وهويتها — من البن والعسل إلى العقيق والفضة والمنسوجات والحرف اليدوية.</p>
+
+    <div class="prod-grid">
+      <article class="prod-card reveal" style="--pc: var(--hue-coral);">
+        <figure><img src="assets/img/p-coffee.png" alt="غصن البن اليمني — Yemeni coffee branch" loading="lazy"></figure>
+        <h3 data-i18n="prod.p1">البن اليمني</h3>
+        <p data-i18n="prod.p1t">من مدرجات حراز — أصل القهوة في العالم.</p>
+      </article>
+      <article class="prod-card reveal" style="--pc: var(--orange-desert); --reveal-delay: .06s;">
+        <figure><img src="assets/img/p-honey.png" alt="العسل اليمني — Yemeni honey" loading="lazy"></figure>
+        <h3 data-i18n="prod.p2">العسل الجبلي</h3>
+        <p data-i18n="prod.p2t">عسل السدر والسمر بجودة عالمية نادرة.</p>
+      </article>
+      <article class="prod-card reveal" style="--pc: var(--hue-amber-dim); --reveal-delay: .12s;">
+        <figure><img src="assets/img/p-dallah.png" alt="دلة القهوة اليمنية — Yemeni coffee pot" loading="lazy"></figure>
+        <h3 data-i18n="prod.p3">تجربة الضيافة</h3>
+        <p data-i18n="prod.p3t">طقوس القهوة اليمنية كما تُقدَّم في بيوتها.</p>
+      </article>
+      <article class="prod-card reveal" style="--pc: var(--hue-teal); --reveal-delay: .18s;">
+        <figure><img src="assets/img/p-agate.png" alt="صناعة العقيق والفضة — Agate and silver craftsmanship" loading="lazy"></figure>
+        <h3 data-i18n="prod.p4">العقيق والفضة</h3>
+        <p data-i18n="prod.p4t">حرفة يدوية توارثتها الأجيال في صنعاء.</p>
+      </article>
+      <article class="prod-card reveal" style="--pc: var(--hue-sage-dim);">
+        <figure><img src="assets/img/p-basket.png" alt="سلال الخوص الملونة — Colorful palm-woven trays" loading="lazy"></figure>
+        <h3 data-i18n="prod.p5">حرف الخوص</h3>
+        <p data-i18n="prod.p5t">ألوان وأنماط تحكي جغرافيا اليمن.</p>
+      </article>
+      <article class="prod-card reveal" style="--pc: var(--hue-coral-dim); --reveal-delay: .06s;">
+        <figure><img src="assets/img/p-carpet.png" alt="المنسوجات اليمنية التقليدية — Traditional Yemeni textiles" loading="lazy"></figure>
+        <h3 data-i18n="prod.p6">المنسوجات</h3>
+        <p data-i18n="prod.p6t">زخارف يمنية تتحول إلى قطع فنية.</p>
+      </article>
+      <article class="prod-card reveal" style="--pc: var(--plum-highs); --reveal-delay: .12s;">
+        <figure><img src="assets/img/p-weaving.png" alt="حرفي يمني يصنع الخوص — Yemeni artisan weaving" loading="lazy"></figure>
+        <h3 data-i18n="prod.p7">ورش حيّة</h3>
+        <p data-i18n="prod.p7t">الحرفي يصنع أمامك، لا خلف زجاج.</p>
+      </article>
+      <article class="prod-card reveal" style="--pc: var(--hue-amber); --reveal-delay: .18s;">
+        <figure><img src="assets/img/p-bread.png" alt="الخبز اليمني التقليدي — Traditional Yemeni bread" loading="lazy"></figure>
+        <h3 data-i18n="prod.p8">المطبخ اليمني</h3>
+        <p data-i18n="prod.p8t">مذاقات تُخبز وتُقدَّم في الموقع.</p>
+      </article>
+    </div>
+
+    <div class="prod-cta reveal">
+      <p data-i18n="prod.ctaText">تبحثون عن فرص استيراد أو توزيع للمنتجات اليمنية؟</p>
+      <a href="#contact" class="btn btn-amber"><span class="btn-diamond">◆</span> <span data-i18n="prod.ctaBtn">تواصل للأعمال</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 06 DESTINATIONS ==================== -->
+<section class="destinations section-pad" id="destinations" style="--chapter-accent: var(--plum-highs);">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <span class="chapter-num">06</span>
+      <div class="chapter-titles">
+        <p class="chapter-kicker" data-i18n="dest.kicker">حول العالم</p>
+        <h2 class="chapter-title" data-i18n="dest.title">حكاية تتنقل من محطة إلى محطة</h2>
+      </div>
+    </div>
+    <div class="dest-grid">
+      <!-- Osaka — past -->
+      <article class="dest-card is-past reveal">
+        <figure><img src="assets/img/interior-ornate.jpg" alt="زائرة يابانية تتأمل النقوش اليمنية في إكسبو أوساكا — A Japanese visitor exploring Yemeni ornament at Expo Osaka" loading="lazy"></figure>
+        <div class="dest-body">
+          <span class="dest-badge" data-i18n="dest.pastBadge">محطة سابقة</span>
+          <h3 data-i18n="dest.osaka">أوساكا، اليابان</h3>
+          <span class="dest-year latin">2024</span>
+          <p data-i18n="dest.osakaText">حضور قدّم الثقافة والمنتج اليمني ضمن تجربة تواصل دولية نابضة بالحياة في إكسبو أوساكا.</p>
+        </div>
+      </article>
+      <!-- Shanghai — current -->
+      <article class="dest-card is-current reveal" style="--reveal-delay: 0.1s;">
+        <figure><img src="assets/img/expo-booth.jpg" alt="لافتة القرية اليمنية: من اليمن إلى العالم — Yemeni Village signage: From Yemen to the World" loading="lazy"></figure>
+        <div class="dest-body">
+          <span class="dest-badge" data-i18n="dest.currBadge">المحطة الحالية</span>
+          <h3 data-i18n="dest.shanghai">شنغهاي، الصين</h3>
+          <span class="dest-year latin">2026</span>
+          <p data-i18n="dest.shanghaiText">المحطة الدولية الجديدة للقرية اليمنية — تجربة يمنية متكاملة تفتح جسراً ثقافياً وتجارياً نحو الصين.</p>
+        </div>
+      </article>
+      <!-- Upcoming -->
+      <article class="dest-card is-upcoming reveal" style="--reveal-delay: 0.2s;">
+        <figure class="dest-art dest-art-next" aria-hidden="true">
+          <svg viewBox="34 22 332 216" fill="none" preserveAspectRatio="xMidYMid slice">
+            <!-- latitude / longitude graticule -->
+            <g class="gl-grid" stroke="currentColor" stroke-width="1">
+              <path d="M0 70h400M0 130h400M0 190h400"/>
+              <path d="M70 0v260M150 0v260M230 0v260M310 0v260"/>
+            </g>
+            <!-- stylised globe -->
+            <g class="gl-globe" stroke="currentColor" stroke-width="1.6">
+              <circle cx="200" cy="132" r="74"/>
+              <path d="M126 132h148"/>
+              <path d="M200 58c26 22 26 126 0 148-26-22-26-126 0-148Z"/>
+              <path d="M142 90c34 16 82 16 116 0M142 174c34-16 82-16 116 0"/>
+            </g>
+            <!-- travelled route: Osaka -> Shanghai -->
+            <path class="gl-route" d="M92 178C130 120 210 104 258 118"
+                  stroke="var(--hue-teal)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="92" cy="178" r="5" fill="var(--hue-teal)"/>
+            <circle cx="258" cy="118" r="5" fill="var(--orange-desert)"/>
+            <!-- next leg: unknown -->
+            <path class="gl-next" d="M258 118C288 106 306 88 318 72"
+                  stroke="var(--plum-highs)" stroke-width="2"
+                  stroke-dasharray="2 10" stroke-linecap="round"/>
+            <!-- pulsing unknown marker -->
+            <g class="gl-marker" style="transform-origin: 324px 66px;">
+              <circle class="gl-halo" cx="324" cy="66" r="20" fill="var(--plum-highs)" opacity=".14"/>
+              <circle class="gl-halo d2" cx="324" cy="66" r="13" fill="var(--plum-highs)" opacity=".2"/>
+              <path d="M324 50 340 66 324 82 308 66Z" fill="var(--plum-highs)"/>
+              <path d="M324 58 332 66 324 74 316 66Z" fill="#fff" opacity=".9"/>
+            </g>
+            <!-- drifting diamonds -->
+            <g class="gl-dust" fill="currentColor">
+              <rect class="p1" x="56" y="52" width="7" height="7" transform="rotate(45 59.5 55.5)"/>
+              <rect class="p2" x="330" y="188" width="6" height="6" transform="rotate(45 333 191)"/>
+              <rect class="p3" x="120" y="222" width="5" height="5" transform="rotate(45 122.5 224.5)"/>
+            </g>
+          </svg>
+        </figure>
+        <div class="dest-body">
+          <span class="dest-badge" data-i18n="dest.nextBadge">الوجهات القادمة</span>
+          <h3 data-i18n="dest.tba">قريباً سيتم الإعلان</h3>
+          <p data-i18n="dest.tbaText">نعمل على محطات دولية جديدة، وسيتم الكشف عن الوجهات والتواريخ بعد اكتمال الترتيبات الرسمية.</p>
+          <a href="#contact" class="dest-link" data-i18n="dest.notify">سجّل اهتمامك</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 07 FORMATS ==================== -->
+<section class="formats dark-section section-pad" id="formats">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <span class="chapter-num">07</span>
+      <div class="chapter-titles">
+        <p class="chapter-kicker" data-i18n="formats.kicker">حلول مرنة</p>
+        <h2 class="chapter-title" data-i18n="formats.title">صيغة لكل وجهة</h2>
+      </div>
+    </div>
+    <p class="lead reveal" style="margin-bottom: clamp(36px, 4vw, 56px);" data-i18n="formats.lead">صُممت القرية اليمنية كنموذج مرن يتيح مواءمة التجربة مع طبيعة كل دولة ورؤيتها الثقافية ومساحاتها وبرامجها السنوية — ويمكن تطويرها بعدة صيغ:</p>
+    <div class="format-grid">
+
+      <div class="format-card reveal" style="--fc: var(--hue-coral);">
+        <span class="format-num">01</span>
+        <div class="fmt-icon" aria-hidden="true">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2">
+            <path class="fx-glow" d="M40 12 62 30v34H18V30Z"/>
+            <path d="M18 64h44M14 30 40 10l26 20"/>
+            <path d="M32 64V46h16v18"/>
+            <path class="fx-blink" d="M27 36h6v6h-6zM47 36h6v6h-6z" fill="currentColor" stroke="none"/>
+            <circle class="fx-orbit" cx="40" cy="10" r="3" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3 data-i18n="formats.f1.title">وجهة ثقافية دائمة</h3>
+        <p data-i18n="formats.f1.text">تعمل على مدار العام كمعلم ثقافي مستدام.</p>
+      </div>
+
+      <div class="format-card reveal" style="--fc: var(--orange-desert); --reveal-delay: 0.07s;">
+        <span class="format-num">02</span>
+        <div class="fmt-icon" aria-hidden="true">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="14" y="20" width="52" height="46" rx="4"/>
+            <path d="M14 34h52M27 14v12M53 14v12"/>
+            <g class="fx-seasons" style="transform-origin: 40px 50px;">
+              <path d="M40 42 46 50 40 58 34 50Z" fill="currentColor" stroke="none" opacity=".85"/>
+            </g>
+            <circle class="fx-pulse" cx="24" cy="44" r="2.6" fill="currentColor" stroke="none"/>
+            <circle class="fx-pulse d2" cx="56" cy="44" r="2.6" fill="currentColor" stroke="none"/>
+            <circle class="fx-pulse d3" cx="24" cy="58" r="2.6" fill="currentColor" stroke="none"/>
+            <circle class="fx-pulse d4" cx="56" cy="58" r="2.6" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3 data-i18n="formats.f2.title">قرية موسمية</h3>
+        <p data-i18n="formats.f2.text">ضمن المواسم والفعاليات الوطنية للدولة المستضيفة.</p>
+      </div>
+
+      <div class="format-card reveal" style="--fc: var(--hue-teal); --reveal-delay: 0.14s;">
+        <span class="format-num">03</span>
+        <div class="fmt-icon" aria-hidden="true">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="40" cy="40" r="22"/>
+            <path d="M18 40h44M40 18c7 7 7 37 0 44-7-7-7-37 0-44Z"/>
+            <ellipse class="fx-spin" cx="40" cy="40" rx="32" ry="12" opacity=".55" style="transform-origin:40px 40px;"/>
+            <circle class="fx-satellite" cx="72" cy="40" r="3.4" fill="currentColor" stroke="none" style="transform-origin:40px 40px;"/>
+          </svg>
+        </div>
+        <h3 data-i18n="formats.f3.title">مشاركة دولية</h3>
+        <p data-i18n="formats.f3.text">ضمن المعارض الدولية ومعارض إكسبو العالمية.</p>
+      </div>
+
+      <div class="format-card reveal" style="--fc: var(--hue-amber); --reveal-delay: 0.21s;">
+        <span class="format-num">04</span>
+        <div class="fmt-icon" aria-hidden="true">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 64h56M20 64V40h40v24"/>
+            <path d="M20 40 40 22l20 18"/>
+            <g class="fx-beams" opacity=".7">
+              <path class="b1" d="M40 20 28 4"/>
+              <path class="b2" d="M40 20v-16"/>
+              <path class="b3" d="M40 20 52 4"/>
+            </g>
+            <path class="fx-wave" d="M28 54h24" stroke-linecap="round"/>
+            <circle cx="40" cy="20" r="3.2" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3 data-i18n="formats.f4.title">تجربة مصاحبة</h3>
+        <p data-i18n="formats.f4.text">للمهرجانات والفعاليات الكبرى كقيمة ثقافية مضافة.</p>
+      </div>
+
+      <div class="format-card reveal" style="--fc: var(--hue-sage); --reveal-delay: 0.28s;">
+        <span class="format-num">05</span>
+        <div class="fmt-icon" aria-hidden="true">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 66V30h52v36zM14 30l8-14h36l8 14"/>
+            <path d="M30 66V46h20v20"/>
+            <path class="fx-doorlight" d="M30 46h20v20H30z" fill="currentColor" stroke="none" opacity=".18"/>
+            <path class="fx-scan" d="M14 38h52" opacity=".6"/>
+            <circle class="fx-pulse" cx="40" cy="23" r="2.4" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3 data-i18n="formats.f5.title">مساحة ثقافية</h3>
+        <p data-i18n="formats.f5.text">داخل المجمعات التجارية أو الوجهات السياحية.</p>
+      </div>
+
+      <div class="format-card reveal" style="--fc: var(--plum-highs); --reveal-delay: 0.35s;">
+        <span class="format-num">06</span>
+        <div class="fmt-icon" aria-hidden="true">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2">
+            <path class="fx-road" d="M6 58h68" stroke-dasharray="7 7" opacity=".6"/>
+            <g class="fx-drive">
+              <rect x="18" y="34" width="28" height="18" rx="2"/>
+              <path d="M46 40h10l6 8v4H46z"/>
+              <circle cx="27" cy="56" r="4.5"/>
+              <circle cx="55" cy="56" r="4.5"/>
+              <path d="M24 40h16M24 46h10"/>
+            </g>
+            <path class="fx-pin" d="M62 24a5 5 0 1 0-10 0c0 4 5 9 5 9s5-5 5-9Z"/>
+          </svg>
+        </div>
+        <h3 data-i18n="formats.f6.title">نموذج متنقل</h3>
+        <p data-i18n="formats.f6.text">يقام في أكثر من مدينة داخل الدولة الواحدة.</p>
+      </div>
+    </div>
+    <p class="formats-note reveal" data-i18n="formats.note">تمنح هذه المرونة الجهات المستضيفة فرصة اختيار النموذج الأنسب، مع إمكانية تطويره وتوسعته مستقبلاً بما يحقق الأهداف الثقافية والسياحية والمجتمعية والاقتصادية.</p>
+  </div>
+</section>
+
+<!-- ==================== 06 IMPACT ==================== -->
+<section class="impact section-pad" id="impact" style="--chapter-accent: var(--hue-sage-dim);">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <span class="chapter-num">08</span>
+      <div class="chapter-titles">
+        <p class="chapter-kicker" data-i18n="impact.kicker">الأثر</p>
+        <h2 class="chapter-title" data-i18n="impact.title">أثر يتجاوز حدود المكان</h2>
+      </div>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-item reveal">
+        <div class="impact-glyph" style="background: var(--hue-coral);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8a5 5 0 1 0-10 0c0 4-3 5-3 5h16s-3-1-3-5"/><path d="M10 17a2 2 0 0 0 4 0"/></svg></div>
+        <div><h3 data-i18n="impact.i1.title">حراك ثقافي وسياحي</h3><p data-i18n="impact.i1.text">دعم الحراك الثقافي في الدول المستضيفة وإثراء مشهدها السياحي بتجربة نوعية تجمع الأصالة بالمعاصرة.</p></div>
+      </div>
+      <div class="impact-item reveal" style="--reveal-delay: 0.08s;">
+        <div class="impact-glyph" style="background: var(--hue-amber-dim);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div><h3 data-i18n="impact.i2.title">تمكين الحرف والصناعات الإبداعية</h3><p data-i18n="impact.i2.text">فتح آفاق جديدة أمام المنتجات اليمنية للوصول إلى الأسواق العالمية ضمن سياق ثقافي يعكس قيمتها وهويتها.</p></div>
+      </div>
+      <div class="impact-item reveal" style="--reveal-delay: 0.16s;">
+        <div class="impact-glyph" style="background: var(--hue-teal);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><path d="M16 3.5a4 4 0 0 1 0 7M22 21v-2a4 4 0 0 0-3-3.85"/></svg></div>
+        <div><h3 data-i18n="impact.i3.title">حوار بين الشعوب</h3><p data-i18n="impact.i3.text">تحويل الثقافة إلى مساحة للحوار والتفاهم والتعاون، وتعزيز التقارب بين اليمن وشعوب العالم.</p></div>
+      </div>
+      <div class="impact-item reveal" style="--reveal-delay: 0.24s;">
+        <div class="impact-glyph" style="background: var(--hue-plum);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div><h3 data-i18n="impact.i4.title">منصة شراكات مستدامة</h3><p data-i18n="impact.i4.text">بناء شراكات بين المؤسسات الثقافية والقطاع الخاص ورواد الأعمال، بقيمة مشتركة تمتد إلى ما بعد الزيارة.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PARTNER CTA ==================== -->
+<section class="partner section-pad" id="partner">
+  <div class="partner-bg" style="background-image: url('assets/img/partner-exchange.jpg');" aria-hidden="true"></div>
+  <div class="container partner-inner">
+    <div class="reveal">
+      <h2 data-i18n="partner.title">شراكة تصنع الأثر</h2>
+      <p data-i18n="partner.text">نؤمن بأن نجاح أي تجربة ثقافية يبدأ من فهم خصوصية الدولة المستضيفة واحترام هويتها. تُطوَّر كل تجربة بالشراكة مع الجهات المعنية — بما يراعي طبيعة الموقع والبرامج الثقافية والمواسم الوطنية — لتصبح القرية اليمنية امتداداً للمشهد الثقافي المحلي، لا عنصراً منفصلاً عنه.</p>
+    </div>
+    <div class="partner-actions reveal" style="--reveal-delay: 0.15s;">
+      <a href="#contact" class="btn btn-light" data-i18n="partner.cta1">ابدأ حوار الشراكة</a>
+      <a href="assets/docs/yemeni-village-profile-ar.pdf" id="profileDownload" download class="btn btn-outline">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19h16"/></svg>
+        <span data-i18n="partner.cta2">حمّل الملف التعريفي</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 07 DEVELOPER ==================== -->
+<section class="developer section-pad" id="developer" style="--chapter-accent: var(--hue-plum);">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <span class="chapter-num">09</span>
+      <div class="chapter-titles">
+        <p class="chapter-kicker" data-i18n="dev.kicker">الجهة المطورة</p>
+        <h2 class="chapter-title dev-name">Core Media</h2>
+      </div>
+    </div>
+    <div class="dev-grid">
+      <div class="dev-body reveal">
+        <p class="lead" data-i18n="dev.p1">تقف كور ميديا خلف تطوير وإدارة مبادرة القرية اليمنية، انطلاقاً من خبرتها في تصميم وإدارة المشاريع الثقافية، وتنظيم الفعاليات، وبناء التجارب التي تجمع بين الهوية والإبداع والتفاعل المجتمعي.</p>
+        <p class="lead" data-i18n="dev.p2">تتبنى كور ميديا منهجية تقوم على تحويل الأفكار إلى تجارب حيّة قابلة للتنفيذ والتطوير، من خلال التكامل بين التخطيط والتصميم والتشغيل وبناء الشراكات.</p>
+      </div>
+      <div class="dev-side reveal" style="--reveal-delay: 0.12s;">
+        <ul class="dev-points">
+          <li data-i18n="dev.li1">خبرة عملية في تنظيم وإدارة المشاركات الثقافية والأجنحة الدولية</li>
+          <li data-i18n="dev.li2">جاهزية للتنفيذ ضمن بيئات عالمية تتطلب الاحتراف والانضباط التشغيلي</li>
+          <li data-i18n="dev.li3">تجربة تمثيلية تليق بالمنصات الدولية وتحافظ على أصالة الهوية اليمنية</li>
+        </ul>
+      </div>
+    </div>
+
+    <figure class="dev-strip reveal" style="--reveal-delay: 0.15s;">
+      <img src="assets/img/dev-montage.jpg" alt="وجوه يمنية: الفنان والحرفي والمزارع — Yemeni faces: performer, artisan and farmer" loading="lazy">
+      <figcaption>
+        <img class="dev-logo-badge" src="assets/logos/coremedia-dark.png" alt="Core Media">
+        <small data-i18n="dev.markSub">تطوير وإدارة التجارب الثقافية</small>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ==================== GALLERY ==================== -->
+<section class="gallery section-pad" id="gallery" style="--chapter-accent: var(--hue-amber-dim);">
+  <div class="container">
+    <div class="chapter-head reveal">
+      <span class="chapter-num">10</span>
+      <div class="chapter-titles">
+        <p class="chapter-kicker" data-i18n="gallery.kicker">مشاهد من اليمن</p>
+        <h2 class="chapter-title" data-i18n="gallery.title">أرض تحكي قصتها بنفسها</h2>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-strip reveal" dir="ltr">
+    <div class="gallery-track">
+      <figure><img src="assets/img/g-canyon.jpg" alt="وادي حضرموت — Wadi in Hadhramaut" loading="lazy"></figure>
+      <figure class="tall"><img src="assets/img/g-dragontree.jpg" alt="شجرة دم الأخوين في سقطرى — Dragon blood tree, Socotra" loading="lazy"></figure>
+      <figure><img src="assets/img/g-beach.jpg" alt="شواطئ سقطرى — Socotra beaches" loading="lazy"></figure>
+      <figure class="tall"><img src="assets/img/g-facade.jpg" alt="عمارة يمنية تقليدية — Traditional Yemeni architecture" loading="lazy"></figure>
+      <figure><img src="assets/img/g-boat.jpg" alt="قارب في المياه الفيروزية — Boat in turquoise waters" loading="lazy"></figure>
+      <figure class="tall"><img src="assets/img/g-house.jpg" alt="بيت يمني تقليدي — Traditional Yemeni house" loading="lazy"></figure>
+      <figure><img src="assets/img/g-forest.jpg" alt="غابات أشجار دم الأخوين — Dragon blood tree forest" loading="lazy"></figure>
+      <figure class="tall"><img src="assets/img/g-door.jpg" alt="باب تقليدي في حضرموت — Traditional door, Hadhramaut" loading="lazy"></figure>
+      <figure><img src="assets/img/g-sea.jpg" alt="بحر العرب — Arabian Sea" loading="lazy"></figure>
+      <figure class="tall"><img src="assets/img/g-mosque.jpg" alt="مسجد المحضار في تريم — Al-Muhdhar Mosque, Tarim" loading="lazy"></figure>
+      <figure><img src="assets/img/g-pillars.jpg" alt="أعمدة معبد بران — Barran Temple pillars" loading="lazy"></figure>
+      <figure class="tall"><img src="assets/img/g-palms.jpg" alt="واحات النخيل — Palm oases" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== VISION ==================== -->
+<section class="vision section-pad">
+  <div class="vision-bg" style="background-image: url('assets/img/vision-coast.jpg');" aria-hidden="true"></div>
+  <div class="container">
+    <div class="vision-mark reveal" aria-hidden="true">
+      <svg viewBox="0 0 74 74" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M37 6 68 37 37 68 6 37Z"/><path d="M37 22 52 37 37 52 22 37Z"/></svg>
+    </div>
+    <blockquote class="reveal" style="--reveal-delay: 0.1s;">
+      <span data-i18n="vision.q1">من كل وجهة.. مساحة نابضة بالحياة،</span>
+      <em data-i18n="vision.q2">ومن كل زيارة.. تجربة تُعاش.</em>
+    </blockquote>
+    <p class="vision-sub reveal" style="--reveal-delay: 0.2s;" data-i18n="vision.sub">تطمح القرية اليمنية إلى أن تصبح شبكة من الوجهات الثقافية التي تعكس الهوية اليمنية في عدد من دول العالم — مساحات مستدامة للتبادل الثقافي والحوار الحضاري والتجارب الإنسانية التي تجمع بين الشعوب.</p>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="contact section-pad" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info reveal">
+      <h2 data-i18n="contact.title">تواصل معنا</h2>
+      <p data-i18n="contact.text">سواء كنتم جهة حكومية، أو مؤسسة ثقافية، أو مستثمراً، أو منظّم فعاليات — يسعدنا أن نبني معكم الحوار حول استضافة القرية اليمنية في وجهتكم.</p>
+      <div class="contact-rows">
+        <a class="contact-row" href="mailto:info@yemenglobalvillege.com">
+          <span class="cr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+          <span><span class="cr-label" data-i18n="contact.email">البريد الإلكتروني</span><br><span class="cr-value latin">info@yemenglobalvillege.com</span></span>
+        </a>
+        <a class="contact-row" href="tel:+966555015477">
+          <span class="cr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2Z"/></svg></span>
+          <span><span class="cr-label" data-i18n="contact.phone">الهاتف</span><br><span class="cr-value latin">+966 555 015 477</span></span>
+        </a>
+        <a class="contact-row" href="https://www.yemenglobalvillege.com" target="_blank" rel="noopener">
+          <span class="cr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20Z"/></svg></span>
+          <span><span class="cr-label" data-i18n="contact.web">الموقع الإلكتروني</span><br><span class="cr-value latin">www.yemenglobalvillege.com</span></span>
+        </a>
+        <a class="contact-row" href="https://coremedias.com" target="_blank" rel="noopener">
+          <span class="cr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 14h6"/></svg></span>
+          <span><span class="cr-label" data-i18n="contact.developer">الجهة المطورة</span><br><span class="cr-value latin">coremedias.com</span></span>
+        </a>
+      </div>
+    </div>
+    <form class="contact-form reveal" style="--reveal-delay: 0.15s;" id="contactForm">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-name" data-i18n="form.name">الاسم</label>
+          <input id="f-name" name="name" type="text" required data-i18n-ph="form.namePh" placeholder="الاسم الكامل">
+        </div>
+        <div class="form-field">
+          <label for="f-org" data-i18n="form.org">الجهة</label>
+          <input id="f-org" name="org" type="text" data-i18n-ph="form.orgPh" placeholder="اسم المؤسسة أو الجهة">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-email" data-i18n="form.email">البريد الإلكتروني</label>
+          <input id="f-email" name="email" type="email" required placeholder="name@example.com">
+        </div>
+        <div class="form-field">
+          <label for="f-type" data-i18n="form.type">نوع الاهتمام</label>
+          <select id="f-type" name="type">
+            <option data-i18n="form.type1">استضافة القرية</option>
+            <option data-i18n="form.type2">شراكة تجارية أو استثمارية</option>
+            <option data-i18n="form.type3">تعاون ثقافي أو مؤسسي</option>
+            <option data-i18n="form.type4">أخرى</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="f-msg" data-i18n="form.msg">الرسالة</label>
+        <textarea id="f-msg" name="message" data-i18n-ph="form.msgPh" placeholder="حدثونا عن اهتمامكم بالقرية اليمنية.."></textarea>
+      </div>
+      <button type="submit" class="btn btn-amber"><span class="btn-diamond">◆</span> <span data-i18n="form.send">إرسال الرسالة</span></button>
+      <p class="form-note" data-i18n="form.note">سنعود إليكم خلال أيام عمل قليلة.</p>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logos/trimmed-H-full-white.png" alt="القرية اليمنية — Yemeni Village">
+        <p data-i18n="footer.about">القرية اليمنية — وجهة دولية للتبادل الثقافي والحضاري، تقدم تجربة يمنية متكاملة وتبني جسوراً مستدامة بين اليمن وشعوب العالم. مبادرة تطورها وتديرها كور ميديا.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.explore">استكشف</h4>
+        <ul>
+          <li><a href="#culture" data-i18n="nav.culture">الثقافة</a></li>
+          <li><a href="#worlds" data-i18n="nav.worlds">عوالم القرية</a></li>
+          <li><a href="#formats" data-i18n="nav.formats">صيغ التنفيذ</a></li>
+          <li><a href="#impact" data-i18n="nav.impact">الأثر</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.contact">تواصل</h4>
+        <ul>
+          <li><a href="mailto:info@yemenglobalvillege.com" class="latin">info@yemenglobalvillege.com</a></li>
+          <li><a href="tel:+966555015477" class="latin">+966 555 015 477</a></li>
+          <li><a href="https://www.yemenglobalvillege.com" class="latin">yemenglobalvillege.com</a></li>
+          <li><a href="https://coremedias.com" target="_blank" rel="noopener" class="latin">coremedias.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2026 القرية اليمنية — جميع الحقوق محفوظة</span>
+      <span><span data-i18n="footer.by">تطوير وإدارة</span> <span class="sep">◆</span> <span class="latin">Core Media</span></span>
+    </div>
+  </div>
+</footer>
+
+<!-- back to top -->
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+</body>
 </html>
