@@ -62,15 +62,45 @@ The **"Living Atlas"** direction — a light editorial base with one dark interl
 
 ## الترجمة · Localisation
 
-كل النصوص في قاموس `I18N` داخل `js/main.js`، وترتبط بالعناصر عبر السمات:
+الموقع متاح بست لغات · The site ships in six languages:
 
-All copy lives in the `I18N` dictionary in `js/main.js`, bound through attributes:
+| | اللغة | Language | الاتجاه |
+| --- | --- | --- | --- |
+| `ar` | العربية *(الافتراضية)* | Arabic *(default)* | RTL |
+| `en` | الإنجليزية | English | LTR |
+| `zh` | الصينية المبسطة | 中文 (Simplified) | LTR |
+| `ja` | اليابانية | 日本語 | LTR |
+| `fr` | الفرنسية | Français | LTR |
+| `es` | الإسبانية | Español | LTR |
+
+كل لغة في ملف مستقل تحت `js/i18n/<code>.json`، ولا يُحمَّل سوى ملف اللغة النشطة. العربية موجودة أصلاً في `index.html` فلا تكلّف أي طلب.
+
+Each language lives in its own `js/i18n/<code>.json`; only the active one is fetched. Arabic is already in `index.html`, so choosing it costs no request.
+
+النصوص ترتبط بالعناصر عبر السمات · Copy is bound through attributes:
 
 - `data-i18n` — نص العنصر · element text
 - `data-i18n-ph` — النص البديل في الحقول · input placeholder
 - `data-i18n-content` — محتوى وسوم meta · meta tag content
 
-اللغة المختارة تُحفظ في `localStorage` تحت المفتاح `yv-lang`.
+### اختيار اللغة · Language resolution
+
+الأولوية · Priority: `?lang=` في الرابط ← الاختيار المحفوظ (`localStorage` بمفتاح `yv-lang`) ← لغة المتصفح ← العربية.
+
+الرابط له الأولوية، فيمكن مشاركة صفحة بلغة محددة مباشرة — مثل `?lang=zh` لشريك صيني.
+
+The URL wins, so a link can be shared in a specific language — e.g. `?lang=zh` for a Chinese partner.
+
+### إضافة لغة جديدة · Adding a language
+
+1. انسخ `js/i18n/en.json` إلى `js/i18n/<code>.json` وترجم القيم (لا تغيّر المفاتيح).
+2. أضف السطر المقابل في `LANGS` داخل `js/main.js` وفي `LANGS` داخل السكربت المبكر في `<head>`.
+3. أضف `<li>` في `#langMenu` و `<link rel="alternate" hreflang>` في `<head>`.
+4. إن كان الخط لا يغطي حروف اللغة، أضف كتلة `html[lang="<code>"]` في `css/style.css` كما هو الحال مع الصينية واليابانية.
+
+> ⚠️ خطوط الهوية (Thmanyah و GE Contrast و Didot) لا تحتوي حروفاً صينية أو يابانية، لذلك تعتمد هاتان اللغتان على خطوط النظام لدى القارئ. الأرقام تبقى بخط Didot في كل اللغات.
+>
+> The identity fonts carry no CJK glyphs, so Chinese and Japanese fall back to the reader's system faces. Numerals stay on Didot in every language.
 
 ## نموذج التواصل · Contact form
 

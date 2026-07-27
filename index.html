@@ -23,6 +23,44 @@
 <meta name="twitter:image" content="assets/img/hero-atlas.jpg">
 
 <link rel="canonical" href="https://www.yemenglobalvillage.com">
+
+<!-- language alternates -->
+<link rel="alternate" hreflang="ar" href="https://www.yemenglobalvillage.com/">
+<link rel="alternate" hreflang="en" href="https://www.yemenglobalvillage.com/?lang=en">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.yemenglobalvillage.com/?lang=zh">
+<link rel="alternate" hreflang="ja" href="https://www.yemenglobalvillage.com/?lang=ja">
+<link rel="alternate" hreflang="fr" href="https://www.yemenglobalvillage.com/?lang=fr">
+<link rel="alternate" hreflang="es" href="https://www.yemenglobalvillage.com/?lang=es">
+<link rel="alternate" hreflang="x-default" href="https://www.yemenglobalvillage.com/">
+
+<script>
+/* Set direction and language before first paint so a non-Arabic visitor
+   never sees a flash of the Arabic markup. The safety timeout makes sure
+   content is revealed even if the dictionary request fails. */
+(function () {
+  var LANGS = { ar:['rtl','ar'], en:['ltr','en'], zh:['ltr','zh-Hans'],
+                ja:['ltr','ja'], fr:['ltr','fr'], es:['ltr','es'] };
+  var pick = null;
+  try {
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q && LANGS[q]) pick = q;
+    if (!pick) { var s = localStorage.getItem('yv-lang'); if (s && LANGS[s]) pick = s; }
+    if (!pick) {
+      var tags = navigator.languages || [navigator.language || ''];
+      for (var i = 0; i < tags.length; i++) {
+        var b = String(tags[i]).toLowerCase().split('-')[0];
+        if (LANGS[b]) { pick = b; break; }
+      }
+    }
+  } catch (e) {}
+  if (!pick || pick === 'ar') return;               // Arabic is already in the markup
+  var root = document.documentElement;
+  root.dir = LANGS[pick][0];
+  root.lang = LANGS[pick][1];
+  root.setAttribute('data-i18n-pending', '');
+  setTimeout(function () { root.removeAttribute('data-i18n-pending'); }, 2500);
+})();
+</script>
 <link rel="icon" type="image/png" href="assets/logos/V color W.png">
 <link rel="apple-touch-icon" href="assets/logos/V color W.png">
 <link rel="preload" as="image" href="assets/img/hero-atlas.webp">
@@ -60,9 +98,25 @@
     </nav>
     <div class="nav-actions">
       <a href="#contact" class="nav-cta" data-i18n="nav.cta">شارك معنا <span class="cta-diamond">◆</span></a>
-      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
-        <span id="langLabel">EN</span>
-      </button>
+
+      <div class="lang-picker" id="langPicker">
+        <button class="lang-toggle" id="langToggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Language / اللغة">
+          <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/>
+          </svg>
+          <span id="langLabel">العربية</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Language">
+          <li><button type="button" role="option" data-lang="ar" lang="ar" aria-selected="true">العربية</button></li>
+          <li><button type="button" role="option" data-lang="en" lang="en" aria-selected="false">English</button></li>
+          <li><button type="button" role="option" data-lang="zh" lang="zh-Hans" aria-selected="false">中文</button></li>
+          <li><button type="button" role="option" data-lang="ja" lang="ja" aria-selected="false">日本語</button></li>
+          <li><button type="button" role="option" data-lang="fr" lang="fr" aria-selected="false">Français</button></li>
+          <li><button type="button" role="option" data-lang="es" lang="es" aria-selected="false">Español</button></li>
+        </ul>
+      </div>
+
       <button class="nav-burger" id="navBurger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -912,10 +966,10 @@
       <div class="footer-col">
         <h4 data-i18n="footer.explore">استكشف</h4>
         <ul>
-          <li><a href="#culture" data-i18n="nav.culture">الثقافة</a></li>
-          <li><a href="#worlds" data-i18n="nav.worlds">عوالم القرية</a></li>
-          <li><a href="#formats" data-i18n="nav.formats">صيغ التنفيذ</a></li>
-          <li><a href="#impact" data-i18n="nav.impact">الأثر</a></li>
+          <li><a href="#culture" data-i18n="culture.kicker">الثقافة</a></li>
+          <li><a href="#worlds" data-i18n="worlds.kicker">عوالم القرية</a></li>
+          <li><a href="#formats" data-i18n="formats.kicker">حلول مرنة</a></li>
+          <li><a href="#impact" data-i18n="impact.kicker">الأثر</a></li>
         </ul>
       </div>
       <div class="footer-col">

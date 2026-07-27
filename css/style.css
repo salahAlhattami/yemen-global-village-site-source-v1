@@ -118,6 +118,39 @@
   --container: 1200px;
 }
 
+/* ---------- CJK typography ----------
+   Thmanyah, GE Contrast and Didot carry no Chinese or Japanese glyphs, so
+   these two languages fall back to the reader's native system faces — which
+   also render far better than a bundled webfont subset would. Numerals stay
+   on Didot everywhere, per the identity rule. */
+html[lang^="zh"] {
+  --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+               "Noto Sans SC", "Source Han Sans SC", sans-serif;
+  --font-serif: "Songti SC", "Noto Serif SC", "Source Han Serif SC", serif;
+  --font-display: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --font-contrast: var(--font-display);
+}
+html[lang="ja"] {
+  --font-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+               "Meiryo", "Noto Sans JP", sans-serif;
+  --font-serif: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  --font-display: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  --font-contrast: var(--font-display);
+}
+/* CJK display type needs weight rather than a contrast face, and a little
+   more air between lines */
+html[lang^="zh"] :is(.atlas-hero h1, .chapter-title, .next-title, .partner h2,
+                     .vision blockquote, .contact-info h2),
+html[lang="ja"] :is(.atlas-hero h1, .chapter-title, .next-title, .partner h2,
+                    .vision blockquote, .contact-info h2) {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+html[lang^="zh"] .lead, html[lang="ja"] .lead,
+html[lang^="zh"] .hero-body, html[lang="ja"] .hero-body { line-height: 1.95; }
+
 /* ---------- Reset / base ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -217,20 +250,84 @@ body {
 
 .nav-actions { display: flex; align-items: center; gap: 14px; }
 
+/* ---- language picker ---- */
+.lang-picker { position: relative; }
+
 .lang-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
+  font-family: var(--font-sans);
   font-size: 13.5px;
   font-weight: 700;
-  padding: 8px 16px;
+  padding: 8px 14px;
   border: 1.5px solid var(--border-default);
   border-radius: 999px;
   color: var(--text-primary);
   transition: all 0.25s var(--ease-out);
-  letter-spacing: 0.4px;
+  white-space: nowrap;
 }
-.lang-toggle:hover { border-color: var(--plum-highs); color: var(--plum-highs); }
+.lang-toggle .globe { width: 16px; height: 16px; opacity: 0.75; flex: none; }
+.lang-toggle .chev {
+  width: 13px; height: 13px;
+  opacity: 0.6;
+  flex: none;
+  transition: transform 0.25s var(--ease-out);
+}
+.lang-picker.open .lang-toggle .chev { transform: rotate(180deg); }
+.lang-toggle:hover,
+.lang-picker.open .lang-toggle { border-color: var(--plum-highs); color: var(--plum-highs); }
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  inset-inline-end: 0;
+  min-width: 168px;
+  padding: 6px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 14px 38px rgba(28,23,20,0.16);
+  display: grid;
+  gap: 2px;
+  z-index: 120;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.25s var(--ease-out);
+}
+.lang-picker.open .lang-menu { opacity: 1; visibility: visible; transform: none; }
+
+.lang-menu button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  text-align: start;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: background 0.2s, color 0.2s;
+}
+.lang-menu button::after {
+  content: '◆';
+  font-size: 9px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.lang-menu button:hover { background: var(--surface-sunken); color: var(--text-primary); }
+.lang-menu button.is-active {
+  color: var(--plum-highs);
+  font-weight: 700;
+  background: rgba(124,74,107,0.08);
+}
+.lang-menu button.is-active::after { opacity: 0.85; }
+
+/* hide the page until the chosen language is painted */
+html[data-i18n-pending] body { visibility: hidden; }
 
 .nav-cta {
   font-size: 14px;
@@ -398,11 +495,14 @@ body {
   margin-bottom: 22px;
 }
 [dir="rtl"] .atlas-hero h1 > span { white-space: nowrap; }
+/* The copy column is ~436px at 1440. French and Spanish headlines run far
+   longer than English, so the Latin size is set to keep the longest line
+   ("une histoire qui") on a single line instead of wrapping to four. */
 [dir="ltr"] .atlas-hero h1 {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(40px, 4.6vw, 66px);
-  line-height: 1.16;
+  font-size: clamp(34px, 3.35vw, 48px);
+  line-height: 1.2;
 }
 
 .hero-body {
