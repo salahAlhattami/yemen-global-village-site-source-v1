@@ -137,19 +137,46 @@ html[lang="ja"] {
   --font-display: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
   --font-contrast: var(--font-display);
 }
+html[lang="ko"] {
+  --font-sans: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR",
+               "Source Han Sans KR", sans-serif;
+  --font-serif: "Nanum Myeongjo", "Noto Serif KR", "Apple SD Gothic Neo", serif;
+  --font-display: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --font-contrast: var(--font-display);
+}
+
+/* Cyrillic is missing from the identity fonts too, but unlike CJK it is
+   covered by ordinary system faces — Georgia even keeps the editorial serif. */
+html[lang="ru"] {
+  --font-sans: "Segoe UI", "SF Pro Text", "Helvetica Neue", Roboto, Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-contrast: var(--font-display);
+}
+
 /* CJK display type needs weight rather than a contrast face, and a little
    more air between lines */
 html[lang^="zh"] :is(.atlas-hero h1, .chapter-title, .next-title, .partner h2,
                      .vision blockquote, .contact-info h2),
 html[lang="ja"] :is(.atlas-hero h1, .chapter-title, .next-title, .partner h2,
+                    .vision blockquote, .contact-info h2),
+html[lang="ko"] :is(.atlas-hero h1, .chapter-title, .next-title, .partner h2,
                     .vision blockquote, .contact-info h2) {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0.02em;
 }
-html[lang^="zh"] .lead, html[lang="ja"] .lead,
-html[lang^="zh"] .hero-body, html[lang="ja"] .hero-body { line-height: 1.95; }
+html[lang^="zh"] .lead, html[lang="ja"] .lead, html[lang="ko"] .lead,
+html[lang^="zh"] .hero-body, html[lang="ja"] .hero-body,
+html[lang="ko"] .hero-body { line-height: 1.95; }
+
+/* Russian keeps the Latin serif rhythm, just a touch looser */
+html[lang="ru"] :is(.atlas-hero h1, .chapter-title, .next-title, .partner h2,
+                    .vision blockquote, .contact-info h2) {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
 
 /* ---------- Reset / base ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

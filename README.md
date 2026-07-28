@@ -62,16 +62,19 @@ The **"Living Atlas"** direction — a light editorial base with one dark interl
 
 ## الترجمة · Localisation
 
-الموقع متاح بست لغات · The site ships in six languages:
+الموقع متاح بتسع لغات · The site ships in nine languages:
 
-| | اللغة | Language | الاتجاه |
+| | اللغة | Language | الاتجاه · Dir |
 | --- | --- | --- | --- |
-| `ar` | العربية *(الافتراضية)* | Arabic *(default)* | RTL |
+| `ar` | العربية *(الافتراضية)* | العربية *(default)* | RTL |
 | `en` | الإنجليزية | English | LTR |
 | `zh` | الصينية المبسطة | 中文 (Simplified) | LTR |
 | `ja` | اليابانية | 日本語 | LTR |
+| `ko` | الكورية | 한국어 | LTR |
 | `fr` | الفرنسية | Français | LTR |
+| `de` | الألمانية | Deutsch | LTR |
 | `es` | الإسبانية | Español | LTR |
+| `ru` | الروسية | Русский | LTR |
 
 كل لغة في ملف مستقل تحت `js/i18n/<code>.json`، ولا يُحمَّل سوى ملف اللغة النشطة. العربية موجودة أصلاً في `index.html` فلا تكلّف أي طلب.
 
@@ -98,9 +101,9 @@ The URL wins, so a link can be shared in a specific language — e.g. `?lang=zh`
 3. أضف `<li>` في `#langMenu` و `<link rel="alternate" hreflang>` في `<head>`.
 4. إن كان الخط لا يغطي حروف اللغة، أضف كتلة `html[lang="<code>"]` في `css/style.css` كما هو الحال مع الصينية واليابانية.
 
-> ⚠️ خطوط الهوية (Thmanyah و GE Contrast و Didot) لا تحتوي حروفاً صينية أو يابانية، لذلك تعتمد هاتان اللغتان على خطوط النظام لدى القارئ. الأرقام تبقى بخط Didot في كل اللغات.
+> ⚠️ خطوط الهوية (Thmanyah و GE Contrast و Didot) تغطي الفرنسية والألمانية والإسبانية بالكامل، لكنها **لا تحتوي** حروفاً صينية أو يابانية أو كورية أو سيريلية — فتعتمد هذه اللغات الأربع على خطوط النظام لدى القارئ. الأرقام تبقى بخط Didot في كل اللغات.
 >
-> The identity fonts carry no CJK glyphs, so Chinese and Japanese fall back to the reader's system faces. Numerals stay on Didot in every language.
+> The identity fonts fully cover French, German and Spanish, but carry **no** Chinese, Japanese, Korean or Cyrillic glyphs — those four fall back to the reader's system faces. Numerals stay on Didot in every language.
 
 ## نموذج التواصل · Contact form
 

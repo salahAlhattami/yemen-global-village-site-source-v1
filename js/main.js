@@ -12,8 +12,11 @@ const LANGS = {
   en: { name: 'English', dir: 'ltr', doc: 'en' },
   zh: { name: '中文',     dir: 'ltr', doc: 'zh-Hans' },
   ja: { name: '日本語',   dir: 'ltr', doc: 'ja' },
+  ko: { name: '한국어',   dir: 'ltr', doc: 'ko' },
   fr: { name: 'Français', dir: 'ltr', doc: 'fr' },
-  es: { name: 'Español',  dir: 'ltr', doc: 'es' }
+  de: { name: 'Deutsch',  dir: 'ltr', doc: 'de' },
+  es: { name: 'Español',  dir: 'ltr', doc: 'es' },
+  ru: { name: 'Русский',  dir: 'ltr', doc: 'ru' }
 };
 const DEFAULT_LANG = 'ar';
 

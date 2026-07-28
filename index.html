@@ -29,8 +29,11 @@
 <link rel="alternate" hreflang="en" href="https://www.yemenglobalvillage.com/?lang=en">
 <link rel="alternate" hreflang="zh-Hans" href="https://www.yemenglobalvillage.com/?lang=zh">
 <link rel="alternate" hreflang="ja" href="https://www.yemenglobalvillage.com/?lang=ja">
+<link rel="alternate" hreflang="ko" href="https://www.yemenglobalvillage.com/?lang=ko">
 <link rel="alternate" hreflang="fr" href="https://www.yemenglobalvillage.com/?lang=fr">
+<link rel="alternate" hreflang="de" href="https://www.yemenglobalvillage.com/?lang=de">
 <link rel="alternate" hreflang="es" href="https://www.yemenglobalvillage.com/?lang=es">
+<link rel="alternate" hreflang="ru" href="https://www.yemenglobalvillage.com/?lang=ru">
 <link rel="alternate" hreflang="x-default" href="https://www.yemenglobalvillage.com/">
 
 <script>
@@ -39,7 +42,8 @@
    content is revealed even if the dictionary request fails. */
 (function () {
   var LANGS = { ar:['rtl','ar'], en:['ltr','en'], zh:['ltr','zh-Hans'],
-                ja:['ltr','ja'], fr:['ltr','fr'], es:['ltr','es'] };
+                ja:['ltr','ja'], ko:['ltr','ko'], fr:['ltr','fr'],
+                de:['ltr','de'], es:['ltr','es'], ru:['ltr','ru'] };
   var pick = null;
   try {
     var q = new URLSearchParams(location.search).get('lang');
@@ -112,8 +116,11 @@
           <li><button type="button" role="option" data-lang="en" lang="en" aria-selected="false">English</button></li>
           <li><button type="button" role="option" data-lang="zh" lang="zh-Hans" aria-selected="false">中文</button></li>
           <li><button type="button" role="option" data-lang="ja" lang="ja" aria-selected="false">日本語</button></li>
+          <li><button type="button" role="option" data-lang="ko" lang="ko" aria-selected="false">한국어</button></li>
           <li><button type="button" role="option" data-lang="fr" lang="fr" aria-selected="false">Français</button></li>
+          <li><button type="button" role="option" data-lang="de" lang="de" aria-selected="false">Deutsch</button></li>
           <li><button type="button" role="option" data-lang="es" lang="es" aria-selected="false">Español</button></li>
+          <li><button type="button" role="option" data-lang="ru" lang="ru" aria-selected="false">Русский</button></li>
         </ul>
       </div>
 
