@@ -1,0 +1,15 @@
+{
+  "name": "yemeni-village-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static bilingual→9-language marketing site for Yemeni Village. No build step to serve; the only script pre-renders one HTML page per language for crawlers.",
+  "scripts": {
+    "build:i18n": "node tools/build-i18n-pages.js",
+    "build:seo": "node tools/build-seo-files.js",
+    "build": "npm run build:i18n && npm run build:seo",
+    "serve": "npx -y http-server . -p 8734 -c-1"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.0.0"
+  }
+}

@@ -10,9 +10,9 @@ The official marketing site for **Yemeni Village** — an international destinat
 
 ## نظرة عامة · Overview
 
-موقع ثابت من صفحة واحدة، ثنائي اللغة (عربي RTL افتراضياً / إنجليزي LTR)، بلا أي إطار عمل أو خطوة بناء — HTML و CSS و JavaScript خالص.
+موقع ثابت بتسع لغات، لكل لغة صفحتها المُولَّدة مسبقاً — HTML و CSS و JavaScript خالص، بلا أي إطار عمل.
 
-A single-page static site, bilingual (Arabic RTL by default / English LTR), with no framework and no build step — plain HTML, CSS and JavaScript.
+A static site in nine languages, each pre-rendered to its own page — plain HTML, CSS and JavaScript, no framework.
 
 ## التشغيل محلياً · Running locally
 
@@ -29,9 +29,14 @@ npx -y http-server . -p 8734 -c-1
 ## بنية المشروع · Structure
 
 ```
-index.html          الصفحة الكاملة · the whole page
+index.html          الصفحة العربية (المصدر) · the Arabic page (source of truth)
+en/ zh/ ja/ ko/      صفحات مُولَّدة — لا تحرّرها يدوياً
+fr/ de/ es/ ru/      generated pages — never edit by hand
 css/style.css       التصميم والحركات · design tokens, layout, animations
-js/main.js          الترجمة والتفاعل · i18n dictionary, scroll reveal, form
+js/main.js          التفاعل واختيار اللغة · interactions, language wiring
+js/i18n/*.json      نصوص كل لغة · copy per language
+tools/              مولّد الصفحات وملفات الفهرسة · page + SEO generators
+sitemap.xml robots.txt llms.txt
 assets/
   fonts/            Thmanyah Sans · Thmanyah Serif · GE Contrast · Didot
   logos/            شعار القرية وشعار كور ميديا · village + Core Media marks
@@ -86,20 +91,23 @@ Each language lives in its own `js/i18n/<code>.json`; only the active one is fet
 - `data-i18n-ph` — النص البديل في الحقول · input placeholder
 - `data-i18n-content` — محتوى وسوم meta · meta tag content
 
-### اختيار اللغة · Language resolution
+### روابط اللغات · Language URLs
 
-الأولوية · Priority: `?lang=` في الرابط ← الاختيار المحفوظ (`localStorage` بمفتاح `yv-lang`) ← لغة المتصفح ← العربية.
+كل لغة صفحة مستقلة: `/` للعربية و `/en/` و `/zh/` وهكذا. مسار الصفحة هو مصدر الحقيقة، وقائمة اللغات روابط `<a>` عادية — يتبعها الزوّار والزواحف على حدّ سواء.
 
-الرابط له الأولوية، فيمكن مشاركة صفحة بلغة محددة مباشرة — مثل `?lang=zh` لشريك صيني.
+Each language is its own page: `/` for Arabic, then `/en/`, `/zh/` and so on. The path is the source of truth and the picker is plain `<a>` links, so visitors and crawlers follow the same route.
 
-The URL wins, so a link can be shared in a specific language — e.g. `?lang=zh` for a Chinese partner.
+`?lang=` ما زال يعمل على الصفحة الجذر من أجل الروابط المشاركة قبل هذا التغيير.
+
+`?lang=` still works on the root page, for links shared before the move to directories.
 
 ### إضافة لغة جديدة · Adding a language
 
 1. انسخ `js/i18n/en.json` إلى `js/i18n/<code>.json` وترجم القيم (لا تغيّر المفاتيح).
-2. أضف السطر المقابل في `LANGS` داخل `js/main.js` وفي `LANGS` داخل السكربت المبكر في `<head>`.
-3. أضف `<li>` في `#langMenu` و `<link rel="alternate" hreflang>` في `<head>`.
-4. إن كان الخط لا يغطي حروف اللغة، أضف كتلة `html[lang="<code>"]` في `css/style.css` كما هو الحال مع الصينية واليابانية.
+2. أضف السطر المقابل في `LANGS` في ثلاثة مواضع: `js/main.js`، والسكربت المبكر في `<head>`، و `tools/build-i18n-pages.js`.
+3. أضف `<li>` في `#langMenu`، والسطر المقابل في `LANGS` داخل `tools/build-seo-files.js`.
+4. إن كان الخط لا يغطي حروف اللغة، أضف كتلة `html[lang="<code>"]` في `css/style.css` كما هو الحال مع الصينية واليابانية والكورية والروسية.
+5. شغّل `npm run build` لتوليد الصفحة الجديدة وتحديث `sitemap.xml` و `hreflang`.
 
 > ⚠️ خطوط الهوية (Thmanyah و GE Contrast و Didot) تغطي الفرنسية والألمانية والإسبانية بالكامل، لكنها **لا تحتوي** حروفاً صينية أو يابانية أو كورية أو سيريلية — فتعتمد هذه اللغات الأربع على خطوط النظام لدى القارئ. الأرقام تبقى بخط Didot في كل اللغات.
 >
@@ -148,6 +156,44 @@ Once DNS propagates: `Settings → Pages → Custom domain`, then enable **Enfor
 > ⚠️ لا تحذف ملف `CNAME` — حذفه يفصل الدومين المخصص عن الموقع.
 >
 > Do not delete `CNAME` — removing it unlinks the custom domain.
+
+## الفهرسة وتحسين الظهور · Indexing, SEO & GEO
+
+كل لغة **صفحة ثابتة حقيقية** لها رابطها الخاص، ونصها مكتوب داخل HTML — لا يحتاج JavaScript. هذا ضروري لأن زواحف محركات الإجابة الذكية (GPTBot، ClaudeBot، PerplexityBot، Google-Extended) لا تشغّل السكربتات، فكانت ثماني لغات غير مرئية لها تماماً.
+
+Each language is a **real static page** at its own URL with its copy inside the HTML. This matters because AI answer-engine crawlers do not execute JavaScript — before this, eight of the nine languages were invisible to them.
+
+| الملف · File | الغرض · Purpose |
+| --- | --- |
+| `<lang>/index.html` | صفحة مُولَّدة لكل لغة · pre-rendered page per language |
+| `sitemap.xml` | التسع صفحات مع بدائل hreflang · all nine URLs with hreflang alternates |
+| `robots.txt` | يسمح صراحة لزواحف البحث والذكاء الاصطناعي · explicitly allows search + AI crawlers |
+| `llms.txt` | ملخّص المشروع لأنظمة الذكاء الاصطناعي ([llmstxt.org](https://llmstxt.org)) |
+
+### إعادة البناء بعد أي تعديل · Rebuilding
+
+**مهم:** أي تعديل على `index.html` أو ملفات `js/i18n/` يتطلّب إعادة توليد الصفحات، وإلا بقيت اللغات الأخرى على النص القديم.
+
+Any edit to `index.html` or `js/i18n/` requires regenerating the pages, otherwise the other languages keep the old copy.
+
+```bash
+npm install        # مرة واحدة · once
+npm run build      # يولّد صفحات اللغات + ملفات الفهرسة
+```
+
+يحتاج المولّد متصفح Chrome أو Edge مثبتاً؛ يبحث عنه تلقائياً، ويمكن تحديده بمتغيّر `CHROME_PATH`.
+
+The generator needs Chrome or Edge installed; it looks in the usual places, or set `CHROME_PATH`.
+
+### البيانات المنظّمة · Structured data
+
+`index.html` يحمل `@graph` واحداً فيه `Organization` و `WebSite` و `ItemList` للعوالم الستة — ويُنسخ تلقائياً لكل اللغات عند البناء.
+
+### بعد أول نشر · After first deploy
+
+1. أضف الموقع في [Google Search Console](https://search.google.com/search-console) وأثبت الملكية بسجل TXT في Hostinger.
+2. أرسل `sitemap.xml`.
+3. كرّر الخطوتين في [Bing Webmaster Tools](https://www.bing.com/webmasters) — منه تتغذّى Copilot.
 
 ## الحقوق · Rights
 

@@ -23,48 +23,46 @@ const DEFAULT_LANG = 'ar';
 /* Languages with their own profile PDF; the rest fall back to English. */
 const PROFILE_LANGS = ['ar', 'en'];
 
-/* ---------------- Language resolution ----------------
-   Priority: ?lang= in the URL  →  saved choice  →  browser  →  Arabic.
-   The URL wins so a link can be shared in a specific language. */
+/* ---------------- Language ----------------
+   Every language is a real page: / is Arabic, /en/ /zh/ … are pre-rendered
+   at build time by tools/build-i18n-pages.js. The path is the single source
+   of truth, so crawlers and readers always agree on what a URL contains.
+   ?lang= is still honoured for links shared before the move to directories. */
 function resolveLang() {
-  const fromUrl = new URLSearchParams(location.search).get('lang');
-  if (fromUrl && LANGS[fromUrl]) return fromUrl;
+  const seg = location.pathname.split("/").filter(Boolean)[0];
+  if (seg && LANGS[seg]) return seg;
 
-  const saved = localStorage.getItem('yv-lang');
-  if (saved && LANGS[saved]) return saved;
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q && LANGS[q]) return q;
 
-  for (const tag of navigator.languages || [navigator.language || '']) {
-    const base = String(tag).toLowerCase().split('-')[0];
-    if (LANGS[base]) return base;
-  }
   return DEFAULT_LANG;
 }
 
-let lang = resolveLang();
+const lang = resolveLang();
 const dictCache = Object.create(null);
 
 async function loadDict(code) {
   if (dictCache[code]) return dictCache[code];
-  const res = await fetch(`js/i18n/${code}.json`, { cache: 'no-cache' });
+  const res = await fetch(`/js/i18n/${code}.json`, { cache: "no-cache" });
   if (!res.ok) throw new Error(`i18n ${code}: HTTP ${res.status}`);
   dictCache[code] = await res.json();
   return dictCache[code];
 }
 
 function paint(dict) {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const v = dict[el.getAttribute('data-i18n')];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const v = dict[el.getAttribute("data-i18n")];
     if (v !== undefined) el.textContent = v;
   });
-  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
-    const v = dict[el.getAttribute('data-i18n-ph')];
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+    const v = dict[el.getAttribute("data-i18n-ph")];
     if (v !== undefined) el.placeholder = v;
   });
-  document.querySelectorAll('[data-i18n-content]').forEach(el => {
-    const v = dict[el.getAttribute('data-i18n-content')];
-    if (v !== undefined) el.setAttribute('content', v);
+  document.querySelectorAll("[data-i18n-content]").forEach(el => {
+    const v = dict[el.getAttribute("data-i18n-content")];
+    if (v !== undefined) el.setAttribute("content", v);
   });
-  if (dict['meta.title']) document.title = dict['meta.title'];
+  if (dict["meta.title"]) document.title = dict["meta.title"];
 }
 
 function paintChrome() {
@@ -73,78 +71,53 @@ function paintChrome() {
   root.lang = meta.doc;
   root.dir = meta.dir;
 
-  const label = document.getElementById('langLabel');
+  const label = document.getElementById("langLabel");
   if (label) label.textContent = meta.name;
 
-  document.querySelectorAll('#langMenu [data-lang]').forEach(btn => {
-    const on = btn.dataset.lang === lang;
-    btn.classList.toggle('is-active', on);
-    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+  document.querySelectorAll("#langMenu [data-lang]").forEach(a => {
+    const on = a.dataset.lang === lang;
+    a.classList.toggle("is-active", on);
+    a.setAttribute("aria-selected", on ? "true" : "false");
   });
 
-  const dl = document.getElementById('profileDownload');
+  const dl = document.getElementById("profileDownload");
   if (dl) {
-    const code = PROFILE_LANGS.includes(lang) ? lang : 'en';
-    dl.href = `assets/docs/yemeni-village-profile-${code}.pdf`;
+    const code = PROFILE_LANGS.includes(lang) ? lang : "en";
+    dl.href = `/assets/docs/yemeni-village-profile-${code}.pdf`;
   }
-
-  // keep the URL shareable in the chosen language
-  const url = new URL(location.href);
-  if (lang === DEFAULT_LANG) url.searchParams.delete('lang');
-  else url.searchParams.set('lang', lang);
-  history.replaceState(null, '', url);
 }
 
-/* The markup ships in Arabic, so the very first paint can be skipped when
-   Arabic is the chosen language. Every later switch must fetch — by then the
-   DOM holds another language and has to be rewritten. */
-let hasPainted = false;
-
+/* Pre-rendered pages already carry their own copy; only the Arabic source
+   page needs a fetch when it is asked for another language via ?lang=. */
 async function applyLang() {
   paintChrome();
-  if (lang !== DEFAULT_LANG || hasPainted) {
-    try {
-      paint(await loadDict(lang));
-    } catch (err) {
-      console.error(err);
-    }
+  const needsPaint = document.documentElement.dataset.prerendered !== lang;
+  if (needsPaint && lang !== DEFAULT_LANG) {
+    try { paint(await loadDict(lang)); } catch (err) { console.error(err); }
   }
-  hasPainted = true;
-  document.documentElement.removeAttribute('data-i18n-pending');
+  document.documentElement.removeAttribute("data-i18n-pending");
 }
 
 /* ---------------- Language picker ---------------- */
-const picker = document.getElementById('langPicker');
-const langBtn = document.getElementById('langToggle');
-const langMenu = document.getElementById('langMenu');
+const picker = document.getElementById("langPicker");
+const langBtn = document.getElementById("langToggle");
 
 function closeLangMenu() {
-  picker.classList.remove('open');
-  langBtn.setAttribute('aria-expanded', 'false');
+  picker.classList.remove("open");
+  langBtn.setAttribute("aria-expanded", "false");
 }
 
-langBtn.addEventListener('click', e => {
+langBtn.addEventListener("click", e => {
   e.stopPropagation();
-  const open = picker.classList.toggle('open');
-  langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  const open = picker.classList.toggle("open");
+  langBtn.setAttribute("aria-expanded", open ? "true" : "false");
 });
 
-langMenu.addEventListener('click', e => {
-  const btn = e.target.closest('[data-lang]');
-  if (!btn) return;
-  const next = btn.dataset.lang;
-  closeLangMenu();
-  if (next === lang) return;
-  lang = next;
-  localStorage.setItem('yv-lang', lang);
-  applyLang();
+document.addEventListener("click", e => {
+  if (picker.classList.contains("open") && !picker.contains(e.target)) closeLangMenu();
 });
-
-document.addEventListener('click', e => {
-  if (picker.classList.contains('open') && !picker.contains(e.target)) closeLangMenu();
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeLangMenu();
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeLangMenu();
 });
 
 /* ---------------- Nav ---------------- */
@@ -237,9 +210,12 @@ const spy = new IntersectionObserver(entries => {
 spyTargets.forEach(t => spy.observe(t));
 
 /* ---------------- Gallery infinite loop ---------------- */
-const galleryTrack = document.querySelector('.gallery-track');
-if (galleryTrack) {
-  galleryTrack.innerHTML += galleryTrack.innerHTML; // duplicate for seamless -50% loop
+/* The -50% scroll animation needs the strip twice. Guarded so a pre-rendered
+   page (which already contains the doubled markup) is not doubled again. */
+const galleryTrack = document.querySelector(".gallery-track");
+if (galleryTrack && !galleryTrack.dataset.looped) {
+  galleryTrack.innerHTML += galleryTrack.innerHTML;
+  galleryTrack.dataset.looped = "1";
 }
 
 /* ---------------- Scroll reveal ---------------- */

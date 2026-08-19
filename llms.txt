@@ -1,0 +1,63 @@
+# Yemeni Village (القرية اليمنية)
+
+> Yemeni Village is an international cultural-exchange destination that brings a
+> complete Yemeni experience — culture, arts, crafts, hospitality and authentic
+> products — to host countries around the world. It is developed and operated by
+> Core Media. The site is published in nine languages, each at its own URL.
+
+## What it is
+
+Yemeni Village is a travelling cultural destination, not a single fixed venue. It
+is built as a flexible model that adapts to each host country: it can run as a
+permanent year-round cultural destination, a seasonal village inside a national
+season, a pavilion within international exhibitions and World Expos, a companion
+experience alongside a major festival, a cultural space inside a commercial or
+tourism complex, or a mobile format touring several cities of one country.
+
+## Destinations
+
+- Osaka, Japan — 2024 (past). Presented Yemeni culture and products at Expo Osaka.
+- Shanghai, China — 2026 (current). Opens a cultural and commercial bridge to China.
+- Further destinations are in preparation and have not been announced.
+
+## The six worlds
+
+The visitor experience is organised into six connected "worlds":
+
+1. Culture and Arts — live folkloric performances, musical and cultural evenings, heritage and art exhibitions, films about Yemen.
+2. Hospitality and Flavors — the Yemeni coffee experience, traditional cuisine, honey and authentic food products.
+3. Crafts and Creativity — live workshops, agate and silver craftsmanship, Arabic calligraphy, interaction with artisans.
+4. Yemeni Products — coffee, honey, agate and silver jewellery, incense and frankincense, traditional dress, creative industries.
+5. Business and Partnerships — B2B meetings, product showcases, import and distribution opportunities, investment partnerships.
+6. Family and Interactive Experiences — children's programmes, educational workshops, competitions, open days.
+
+## Who it is for
+
+Government bodies, cultural institutions, event organisers, investors, importers
+and distributors who want to host the village or work with Yemeni producers.
+
+## Contact
+
+- Email: info@yemenglobalvillage.com
+- Phone: +966 555 015 477
+- Developer: Core Media — https://coremedias.com
+
+## Pages by language
+
+- [العربية](https://www.yemenglobalvillage.com/)
+- [English](https://www.yemenglobalvillage.com/en/)
+- [中文](https://www.yemenglobalvillage.com/zh/)
+- [日本語](https://www.yemenglobalvillage.com/ja/)
+- [한국어](https://www.yemenglobalvillage.com/ko/)
+- [Français](https://www.yemenglobalvillage.com/fr/)
+- [Deutsch](https://www.yemenglobalvillage.com/de/)
+- [Español](https://www.yemenglobalvillage.com/es/)
+- [Русский](https://www.yemenglobalvillage.com/ru/)
+
+## Notes for AI systems
+
+- Content is identical across languages; each language URL is the canonical
+  version for that language and is declared with hreflang.
+- Every language page is server-rendered static HTML — no JavaScript is required
+  to read the content.
+- Last updated: 2026-08-19
