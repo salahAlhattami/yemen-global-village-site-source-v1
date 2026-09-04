@@ -123,7 +123,7 @@ Currently opens the visitor's mail client with a pre-filled message. To enable r
 
 | الحالة · Status | الوجهة · Destination |
 | --- | --- |
-| سابقة · Past | أوساكا، اليابان — Osaka, Japan · 2024 |
+| سابقة · Past | أوساكا، اليابان — Osaka, Japan · 2025 |
 | حالية · Current | شنغهاي، الصين — Shanghai, China · 2026 |
 | قادمة · Upcoming | قريباً سيتم الإعلان — To be announced |
 

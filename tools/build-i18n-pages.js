@@ -62,7 +62,10 @@ function fixHead(html, code) {
   html = html.replace(/<link rel="canonical"[^>]*>/,
     `<link rel="canonical" href="${url}">`);
 
-  // drop every existing alternate, then insert one clean set
+  // Drop any existing alternate block (comment + links) before inserting a
+  // fresh one. Idempotent: safe to run on a file the build already
+  // processed, which happens whenever the build re-runs on its own output.
+  html = html.replace(/\n?[ \t]*<!-- language alternates -->/g, '');
   html = html.replace(/\n?[ \t]*<link rel="alternate" hreflang="[^"]*"[^>]*>/g, '');
   html = html.replace(/(<link rel="canonical"[^>]*>)/,
     `$1\n\n<!-- language alternates -->\n${hreflangBlock()}`);
@@ -77,6 +80,10 @@ function fixHead(html, code) {
     .map(([, m]) => `<meta property="og:locale:alternate" content="${m.ogLocale}">`)
     .join('\n');
   html = html.replace(/(<meta property="og:locale"[^>]*>)/, `$1\n${alts}`);
+
+  // Collapse runs of blank lines left behind by the removals above — purely
+  // cosmetic, but avoids the whitespace pile-up a repeated build used to leave.
+  html = html.replace(/\n{3,}/g, '\n\n');
 
   return html;
 }

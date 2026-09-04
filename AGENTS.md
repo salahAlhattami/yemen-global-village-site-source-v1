@@ -74,11 +74,11 @@ CNAME                 pins the custom domain — deleting it unlinks the site
 
 Check the source, never recall from memory:
 
-- **Destinations:** Osaka, Japan 2024 (past) → **Shanghai, China 2026 (current)**
+- **Destinations:** Osaka, Japan 2025 (past) → **Shanghai, China 2026 (current)**
   → upcoming `قريباً سيتم الإعلان`. Adding any other city needs Salah's explicit
   confirmation. No dates have been announced for Shanghai — that is why there is
   deliberately no `Event` schema yet.
-- **Contact:** `info@yemenglobalvillage.com` · `+966 555 015 477` ·
+- **Contact:** `info@yemenglobalvillage.com` · `+966 555 015 447`, `+967 770 999 515` ·
   Core Media at `coremedias.com`.
 - **Domain spelling:** the printed profile PDF says `yemenglobalvillege` — that is
   a typo. The real domain is **village**.

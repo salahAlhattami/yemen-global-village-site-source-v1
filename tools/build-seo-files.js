@@ -125,7 +125,7 @@ tourism complex, or a mobile format touring several cities of one country.
 
 ## Destinations
 
-- Osaka, Japan — 2024 (past). Presented Yemeni culture and products at Expo Osaka.
+- Osaka, Japan — 2025 (past). Presented Yemeni culture and products at Expo Osaka.
 - Shanghai, China — 2026 (current). Opens a cultural and commercial bridge to China.
 - Further destinations are in preparation and have not been announced.
 
@@ -148,7 +148,7 @@ and distributors who want to host the village or work with Yemeni producers.
 ## Contact
 
 - Email: info@yemenglobalvillage.com
-- Phone: +966 555 015 477
+- Phone: +966 555 015 447, +967 770 999 515
 - Developer: Core Media — https://coremedias.com
 
 ## Pages by language
