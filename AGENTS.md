@@ -150,3 +150,7 @@ Hostinger holds both the site records and the mail records on the same zone:
 
 Deleting the SPF or MX records breaks email. Deleting `CNAME` from the repo
 unlinks the domain. Multiple `TXT` records on `@` are normal — add, never replace.
+
+## Store preview — 29 October 2026
+
+Salah explicitly authorized publishing the new store inside the existing www.yemenglobalvillage.com site. Preview path: /store-preview/. Standalone React build; production homepage and language pages remain intact. Preview has noindex metadata and illustrative catalogue; no live payment. Return-home links point to /.
